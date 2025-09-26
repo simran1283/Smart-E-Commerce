@@ -23,7 +23,8 @@ const AppButton : FC<AppButtonProps> = ({ onPress, title, backgroundColor = AppC
                 styles.button,
                 { backgroundColor: disabled ? AppColors.disabledGray : backgroundColor },
                 style
-            ]}>
+            ]}
+            disabled={disabled}>
             <AppText variant="bold"
                 style={[
                     styles.textTitle,

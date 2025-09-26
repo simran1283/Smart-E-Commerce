@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     safeView :{
         flex : 1,
         backgroundColor  :AppColors.white,
-        padding : IS_Android ? StatusBar.currentHeight || 0 : 0
+        paddingTop : IS_Android ? StatusBar.currentHeight || 0 : 0
     },
     container :{
         flex : 1
