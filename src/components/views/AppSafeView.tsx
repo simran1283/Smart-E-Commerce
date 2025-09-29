@@ -3,6 +3,7 @@ import { SafeAreaView } from "react-native-safe-area-context"
 import { AppColors } from "../../styles/colors"
 import { ReactNode, FC } from "react"
 import { IS_Android } from "../../constants/constants"
+import { sharedPaddingHorizontal } from "../../styles/shared-styles"
 
 interface AppSafeViewProps {
     children : ReactNode,
@@ -26,8 +27,7 @@ export default AppSafeView
 const styles = StyleSheet.create({
     safeView :{
         flex : 1,
-        backgroundColor  :AppColors.white,
-        paddingTop : IS_Android ? StatusBar.currentHeight || 0 : 0
+        backgroundColor  :AppColors.white
     },
     container :{
         flex : 1

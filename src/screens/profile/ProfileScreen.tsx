@@ -3,10 +3,10 @@ import AppSafeView from "../../components/views/AppSafeView"
 
 
 const ProfileScreen = () => {
-    return(
-        <AppSafeView>
-            <HomeHeader/>
-        </AppSafeView>
+    return (
+        <>
+            <HomeHeader />
+        </>
     )
 }
 

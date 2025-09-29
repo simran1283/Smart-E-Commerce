@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
-import HomeScreen from "../screens/home/HomeScreen"
-import CartScreen from "../screens/cart/CartScreen"
+import HomeScreen from "../screens/home/View/HomeScreen"
+import CartScreen from "../screens/cart/View/CartScreen"
 import ProfileScreen from "../screens/profile/ProfileScreen"
 import { AppColors } from "../styles/colors"
 import { vs, s } from "react-native-size-matters"
