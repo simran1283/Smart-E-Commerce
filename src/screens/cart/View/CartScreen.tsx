@@ -6,11 +6,11 @@ import EmptyCart from "./EmptyCart"
 import { products } from "../../../data/products"
 import AppButton from "../../../components/Buttons/AppButton"
 import { useNavigation } from "@react-navigation/native"
-
+import useCartViewModel from "../ViewModel/CartViewModel"
 
 const CartScreen = () => {
 
-    const navigation = useNavigation()
+const { onContinuePress } = useCartViewModel()
 
     return (
         <>
@@ -20,10 +20,10 @@ const CartScreen = () => {
             <FlatList
             data={products}
             keyExtractor={(item) => item.id.toString()}
-            renderItem={({item})=>{ return <CartItem {...item}/>}}
+            renderItem={({item})=>  <CartItem {...item}/>}
             showsVerticalScrollIndicator = {false}/>
             <TotalViews itemsPrice={5000} orderTotal={5026}/>
-            <AppButton title="Continue" onPress={()=> navigation.navigate("CheckoutScreen")}/>
+            <AppButton title="Continue" onPress={onContinuePress}/>
         </>
 
     )

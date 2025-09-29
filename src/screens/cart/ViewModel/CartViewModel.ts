@@ -9,8 +9,13 @@ const useCartViewModel = () => {
         navigation.navigate("HomeScreen")
     }
 
+    const onContinuePress = () => {
+        navigation.navigate("CheckoutScreen")
+    }
+
     return {
-        onStartPress
+        onStartPress,
+        onContinuePress
     }
 }
 

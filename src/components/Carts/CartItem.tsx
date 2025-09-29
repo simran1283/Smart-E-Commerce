@@ -29,12 +29,12 @@ const CartItem : FC<CartItems> = ({
 
         <View style={styles.container}>
 
-        // Image container
+        {/* Image container */}
             <View style={styles.ImageContainer}>
                 <Image source={{ uri: imageURL }} style={styles.image} />
             </View>
 
-        // Product Details container
+         {/* Product Details container */}
             <View style={styles.DetailsContainer}>
                 <AppText style={styles.textTitle}>{title}</AppText>
                 <AppText style={styles.textPrice}>${price}</AppText>
@@ -49,7 +49,7 @@ const CartItem : FC<CartItems> = ({
                 </View>
             </View>
 
-        // Delete Button Container
+         {/* Delete Button Container */}
             <View style={styles.DeleteContainer}>
                 <Pressable style={styles.deleteButton} onPress={onDeletePress}>
                     <AntDesign name="delete" size={s(14)} color={AppColors.red} />

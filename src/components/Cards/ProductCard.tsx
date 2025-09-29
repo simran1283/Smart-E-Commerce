@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
         marginTop: vs(7)
     },
     addtoCartBttn: {
-        height: vs(26),
+        height: s(26),
         width: s(26),
         position: "absolute",
         top: 5,
