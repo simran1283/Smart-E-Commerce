@@ -1,14 +1,9 @@
 import { View, StyleSheet, Platform, StatusBar, ViewStyle, StyleProp } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
-import { AppColors } from "../../styles/colors"
-import { ReactNode, FC } from "react"
-import { IS_Android } from "../../constants/constants"
-import { sharedPaddingHorizontal } from "../../styles/shared-styles"
+import { AppColors } from "../../../styles/colors"
+import { FC } from "react"
+import { AppSafeViewProps } from "../Model/AppSafeViewModel"
 
-interface AppSafeViewProps {
-    children : ReactNode,
-    style?: StyleProp<ViewStyle>
-}
 
 
 const AppSafeView : FC<AppSafeViewProps> = ({ children, style }) =>{

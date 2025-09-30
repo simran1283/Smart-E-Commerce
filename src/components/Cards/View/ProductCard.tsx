@@ -1,20 +1,15 @@
 import { StyleSheet, View, Image, TouchableOpacity } from "react-native"
 import { s, vs } from "react-native-size-matters"
-import { AppColors } from "../../styles/colors"
-import AppText from "../texts/AppText"
-import { AppFonts } from "../../styles/Fonts"
+import { AppColors } from "../../../styles/colors"
+import AppText from "../../texts/View/AppText"
+import { AppFonts } from "../../../styles/Fonts"
 import { Ionicons } from "@expo/vector-icons"
-import { commonStyles } from "../../styles/shared-styles"
+import { commonStyles } from "../../../styles/shared-styles"
 import { FC } from "react"
+import { ProductCardType } from "../Model/CardModel"
 
-interface ProductCard  {
-    onAddtoCartPress : () => void,
-    title : string,
-    price : number,
-    ImageURL : string
-}
 
-const ProductCard : FC<ProductCard> = ({onAddtoCartPress, title, price, ImageURL}) => {
+const ProductCard : FC<ProductCardType> = ({onAddtoCartPress, title, price, ImageURL}) => {
     return (
         <View style={styles.container}>
 

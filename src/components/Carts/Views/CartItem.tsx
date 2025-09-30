@@ -1,20 +1,12 @@
 import { Image, View, StyleSheet, Pressable } from "react-native"
-import AppText from "../texts/AppText"
+import AppText from "../../texts/View/AppText"
 import { vs, s } from "react-native-size-matters"
-import { AppColors } from "../../styles/colors"
-import { AppFonts } from "../../styles/Fonts"
+import { AppColors } from "../../../styles/colors"
+import { AppFonts } from "../../../styles/Fonts"
 import { AntDesign, FontAwesome } from "@expo/vector-icons"
 import { FC } from "react"
+import { CartItems } from "../Model/CartModel"
 
-interface CartItems {
-    title : string,
-    price : number,
-    imageURL : string,
-    qty : number,
-    onIncreasePress : () => void,
-    onDecreasePress : () => void,
-    onDeletePress : () => void
-}
 
 const CartItem : FC<CartItems> = ({
     title,
@@ -42,7 +34,7 @@ const CartItem : FC<CartItems> = ({
                     <Pressable style={styles.iconButton} onPress={onIncreasePress}>
                         <FontAwesome name="plus" size={s(10)} color={AppColors.primary}/>
                     </Pressable>
-                    <AppText style={styles.textQty}>-1</AppText>
+                    <AppText style={styles.textQty}>{qty}</AppText>
                     <Pressable style={styles.iconButton} onPress={onDecreasePress}>
                         <FontAwesome name="minus" size={s(10)} color={AppColors.primary}/>
                     </Pressable>

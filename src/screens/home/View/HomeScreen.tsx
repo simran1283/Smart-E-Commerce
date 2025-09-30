@@ -1,11 +1,15 @@
-import HomeHeader from "../../../components/Headers/HomeHeader"
+import HomeHeader from "../../../components/Headers/View/HomeHeader"
 import { FlatList } from "react-native"
-import ProductCard from "../../../components/Cards/ProductCard"
+import ProductCard from "../../../components/Cards/View/ProductCard"
 import { products } from "../../../data/products"
 import { vs } from "react-native-size-matters"
+import useHome from "../ViewModel/HomeScreenViewModel"
 
 
 const HomeScreen = () => {
+
+    const { onAddToCart } = useHome()
+    
     return (
         <>
             <HomeHeader />
@@ -18,7 +22,7 @@ const HomeScreen = () => {
                         ImageURL={item.imageURL}
                         price={item.price}
                         title={item.title}
-                        onAddtoCartPress={() => { }}
+                        onAddtoCartPress={()=> onAddToCart(item)}
                     />
                 )}
                 columnWrapperStyle={{

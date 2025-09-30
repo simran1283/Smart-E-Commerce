@@ -1,11 +1,10 @@
-import AppSafeView from "../../../components/views/AppSafeView";
 import { Alert, Image, StyleSheet, View } from "react-native";
 import { IMAGES } from "../../../constants/images-paths";
 import { vs, s } from "react-native-size-matters";
 import { sharedPaddingHorizontal } from "../../../styles/shared-styles";
-import AppTextInput from "../../../components/Inputs/AppTextInput";
-import AppText from "../../../components/texts/AppText";
-import AppButton from "../../../components/Buttons/AppButton";
+import AppTextInput from "../../../components/Inputs/View/AppTextInput";
+import AppText from "../../../components/texts/View/AppText";
+import AppButton from "../../../components/Buttons/View/AppButton";
 import { AppColors } from "../../../styles/colors";
 import useSignUpViewModel from "../viewModel/SignupViewModel";
 

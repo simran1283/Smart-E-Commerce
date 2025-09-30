@@ -1,10 +1,10 @@
 import { StyleSheet, View } from "react-native"
-import AppTextInput from "../../../components/Inputs/AppTextInput"
+import AppTextInput from "../../../components/Inputs/View/AppTextInput"
 import { commonStyles, sharedPaddingHorizontal } from "../../../styles/shared-styles"
 import { s, vs } from "react-native-size-matters"
 import { AppColors } from "../../../styles/colors"
 import { IS_Android } from "../../../constants/constants"
-import AppButton from "../../../components/Buttons/AppButton"
+import AppButton from "../../../components/Buttons/View/AppButton"
 
 const CheckoutScreen = () => {
     return(

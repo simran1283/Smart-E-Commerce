@@ -1,18 +1,14 @@
 import { StyleSheet, View } from "react-native"
-import AppText from "../texts/AppText"
-import { commonStyles, sharedPaddingHorizontal } from "../../styles/shared-styles"
+import AppText from "../../texts/View/AppText"
+import { commonStyles, sharedPaddingHorizontal } from "../../../styles/shared-styles"
 import { s, vs } from "react-native-size-matters"
-import { AppColors } from "../../styles/colors"
-import { AppFonts } from "../../styles/Fonts"
+import { AppColors } from "../../../styles/colors"
+import { AppFonts } from "../../../styles/Fonts"
 import { FC } from "react"
+import { OrderItem } from "../Model/OrderItemModel"
 
-interface OrderItems {
-    totalPrice : string,
-    totalAmount : number,
-    date : string
-}
 
-const OrderItems : FC<OrderItems> = ({totalPrice, totalAmount, date}) => {
+const OrderItems : FC<OrderItem> = ({totalPrice, totalAmount, date}) => {
     return(
         <View style={styles.container}>
             <AppText variant="bold">Order Details</AppText>

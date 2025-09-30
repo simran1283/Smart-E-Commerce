@@ -1,17 +1,12 @@
 import { StyleSheet, View } from "react-native"
 import { vs, s } from "react-native-size-matters"
-import AppText from "../texts/AppText"
-import { AppColors } from "../../styles/colors"
+import AppText from "../../texts/View/AppText"
+import { AppColors } from "../../../styles/colors"
 import { FC } from "react"
-import { shippingFees, taxes } from "../../constants/constants"
-import AppButton from "../Buttons/AppButton"
+import { shippingFees, taxes } from "../../../constants/constants"
+import { TotalView } from "../Model/CartModel"
 
-interface TotalViews {
-    itemsPrice : number,
-    orderTotal : number
-}
-
-const TotalViews : FC<TotalViews> = ({itemsPrice, orderTotal}) => {
+const TotalViews : FC<TotalView> = ({itemsPrice, orderTotal}) => {
     return (
         <View>
             <View style={styles.row}>

@@ -1,11 +1,12 @@
 import { TouchableOpacity, View, StyleSheet } from "react-native"
-import AppText from "../texts/AppText"
-import { AppColors } from "../../styles/colors"
+import AppText from "../../texts/View/AppText"
+import { AppColors } from "../../../styles/colors"
 import { vs, s } from "react-native-size-matters"
-import { AppFonts } from "../../styles/Fonts"
+import { AppFonts } from "../../../styles/Fonts"
 import { MaterialIcons } from "@expo/vector-icons"
+import { ProfileButton } from "../Model/ButtonModel"
 
-const ProfileSectionButton = ({ onPress, title } : {onPress? : () => void, title : string}) => {
+const ProfileSectionButton = ({ onPress, title } : ProfileButton) => {
     return (
         <TouchableOpacity onPress={onPress} style={styles.container}>
             <View style={styles.textContainer}>

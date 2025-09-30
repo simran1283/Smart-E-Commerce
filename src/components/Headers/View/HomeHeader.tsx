@@ -1,7 +1,7 @@
 import{ View, StyleSheet, Image } from "react-native"
-import { IMAGES } from "../../constants/images-paths"
+import { IMAGES } from "../../../constants/images-paths"
 import { vs, s } from "react-native-size-matters"
-import { AppColors } from "../../styles/colors"
+import { AppColors } from "../../../styles/colors"
 const HomeHeader = () =>{
     return(
         <View style={styles.container}>

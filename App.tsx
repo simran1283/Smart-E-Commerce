@@ -3,8 +3,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import MainAppStack from './src/navigation/MainAppStack';
 import { useFonts } from 'expo-font';
 import { ActivityIndicator, StyleSheet } from 'react-native';
-import AppSafeView from './src/components/views/AppSafeView';
-import { sharedPaddingHorizontal } from './src/styles/shared-styles';
+import AppSafeView from './src/components/views/View/AppSafeView';
+import { Provider } from 'react-redux';
+import { store } from './src/store/store';
 
 
 export default function App() {
@@ -21,10 +22,12 @@ export default function App() {
 
   return (
     <AppSafeView>
+      <Provider store={store}>
       <NavigationContainer>
         <FlashMessage position={"top"} />
         <MainAppStack />
       </NavigationContainer>
+      </Provider>
     </AppSafeView>
   );
 }

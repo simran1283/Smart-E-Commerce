@@ -1,17 +1,8 @@
-import { StyleProp, StyleSheet, TextInput, TextStyle } from "react-native"
-import { AppColors } from "../../styles/colors"
+import { StyleSheet, TextInput } from "react-native"
+import { AppColors } from "../../../styles/colors"
 import { vs, s } from "react-native-size-matters"
 import { FC } from "react"
-
-
-interface AppTextInputProps {
-    value : string,
-    onChangeText : (text: string)=> void;
-    placeholder : string;
-    keyboardType?: "default" | "email-address" | "numeric";
-    secureTextEntry?: boolean;
-    style?: StyleProp<TextStyle>
-}
+import { AppTextInputProps } from "../Model/TextInputModel"
 
 
 const AppTextInput:FC<AppTextInputProps> = ({value,onChangeText,placeholder,keyboardType,secureTextEntry,style}) =>{

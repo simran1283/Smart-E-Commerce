@@ -1,10 +1,9 @@
 import { View } from "react-native"
-import ProfileSectionButton from "../../../components/Buttons/ProfileSectionButton"
-import HomeHeader from "../../../components/Headers/HomeHeader"
+import ProfileSectionButton from "../../../components/Buttons/View/ProfileSectionButton"
+import HomeHeader from "../../../components/Headers/View/HomeHeader"
 import { vs, s } from "react-native-size-matters"
 import { sharedPaddingHorizontal } from "../../../styles/shared-styles"
-import AppText from "../../../components/texts/AppText"
-import { useNavigation } from "@react-navigation/native"
+import AppText from "../../../components/texts/View/AppText"
 import useProfile from "../ViewModel/ProfileViewModel"
 
 const ProfileScreen = () => {

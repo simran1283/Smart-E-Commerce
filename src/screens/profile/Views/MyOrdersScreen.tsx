@@ -1,5 +1,5 @@
 import { FlatList } from "react-native"
-import OrderItems from "../../../components/Orders/OrderItems"
+import OrderItems from "../../../components/Orders/View/OrderItems"
 import { orders } from "../../../data/orders"
 
 

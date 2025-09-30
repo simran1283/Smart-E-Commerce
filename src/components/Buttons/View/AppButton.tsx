@@ -1,18 +1,10 @@
-import { StyleProp, StyleSheet, TextStyle, TouchableOpacity, ViewStyle } from "react-native"
-import AppText from "../texts/AppText"
-import { AppColors } from "../../styles/colors"
+import { StyleSheet, TouchableOpacity } from "react-native"
+import AppText from "../../texts/View/AppText"
+import { AppColors } from "../../../styles/colors"
 import { s, vs } from "react-native-size-matters"
 import { FC } from "react"
+import { AppButtonProps } from "../Model/ButtonModel"
 
-interface AppButtonProps {
-    onPress : ()=> void,
-    title : string,
-    backgroundColor?: string,
-    textColor?: string,
-    style?: StyleProp<ViewStyle>,
-    styleTitle?: StyleProp<TextStyle>,
-    disabled?: boolean
-}
 
 
 const AppButton : FC<AppButtonProps> = ({ onPress, title, backgroundColor = AppColors.primary, textColor = AppColors.white, style, styleTitle, disabled = false }) => {

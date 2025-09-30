@@ -1,9 +1,9 @@
 import { StyleSheet, View } from "react-native"
-import AppText from "../../../components/texts/AppText"
+import AppText from "../../../components/texts/View/AppText"
 import { vs, s } from "react-native-size-matters"
 import { AppFonts } from "../../../styles/Fonts"
 import { AppColors } from "../../../styles/colors"
-import AppButton from "../../../components/Buttons/AppButton"
+import AppButton from "../../../components/Buttons/View/AppButton"
 import useCartViewModel from "../ViewModel/CartViewModel"
 import { MaterialCommunityIcons } from "@expo/vector-icons"
 
