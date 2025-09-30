@@ -7,26 +7,43 @@ import AppText from "../../../components/texts/View/AppText";
 import AppButton from "../../../components/Buttons/View/AppButton";
 import { AppColors } from "../../../styles/colors";
 import useSignUpViewModel from "../viewModel/SignupViewModel";
+import * as yup from "yup"
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import AppTextInputController from "../../../components/Inputs/View/AppTextInputController";
 
 const SignUpScreen = () => {
     const {
-        userName,
-        email,
-        password,
-        setUserName,
-        setEmail,
-        setPassword,
-        onGoToSignInPress
+        onGoToSignInPress,
+        onCreateAccountPress
     } = useSignUpViewModel();
+
+    const schema = yup.object({
+        userName : yup.string()
+        .required("User Name is Required")
+        .min(3,"User Name must have atleast 3 characters"),
+
+        email : yup.string()
+        .required("Email is Required")
+        .email("Please enter a valid email"),
+
+        password : yup.string()
+        .required("Password is Required")
+        .min(6,"Password must be 6 characters long")
+    })
+
+    const { control, handleSubmit } = useForm({
+        resolver : yupResolver(schema)
+    })
 
     return (
         <View style={styles.container}>
             <Image source={IMAGES.appLogo} style={styles.appLogo} />
-            <AppTextInput placeholder="UserName" value={userName} onChangeText={setUserName} />
-            <AppTextInput placeholder="Email" value={email} onChangeText={setEmail} />
-            <AppTextInput placeholder="Password" value={password} onChangeText={setPassword} secureTextEntry />
+            <AppTextInputController control={control} name={"userName"} placeholder="UserName" />
+            <AppTextInputController control={control} name={"email"} placeholder="Email" />
+            <AppTextInputController control={control} name={"password"} placeholder="Password" secureTextEntry />
             <AppText style={styles.appName}>Smart E-Commerce</AppText>
-            <AppButton title="Create New Account" onPress={() => Alert.alert("Account Created")} />
+            <AppButton title="Create New Account" onPress={handleSubmit(onCreateAccountPress)} />
             <AppButton
                 title="Go to Sign In"
                 style={styles.signInButton}

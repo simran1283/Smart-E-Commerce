@@ -7,24 +7,42 @@ import AppText from "../../../components/texts/View/AppText";
 import AppButton from "../../../components/Buttons/View/AppButton";
 import { AppColors } from "../../../styles/colors";
 import useSigninViewModel from "../viewModel/SigninViewModel";
+import * as yup from "yup"
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import AppTextInputController from "../../../components/Inputs/View/AppTextInputController";
+
 
 const SigninScreen = () => {
     const {
-        email,
-        password,
-        setEmail,
-        setPassword,
         onLoginPress,
         onSignUpPress
     } = useSigninViewModel();
 
+    
+    const schema = yup.object({
+        email : yup.string()
+        .required("Email is Required")
+        .email("Please enter a valid email"),
+
+        password : yup.string()
+        .required("Password is Required")
+        .min(6,"Password should contain atleast 6 characters")
+    })
+
+
+    const { handleSubmit, control } = useForm({
+        resolver : yupResolver(schema)
+    })
+
+
     return (
         <View style={styles.container}>
             <Image source={IMAGES.appLogo} style={styles.appLogo} />
-            <AppTextInput placeholder="Email" value={email} onChangeText={setEmail} />
-            <AppTextInput placeholder="Password" value={password} onChangeText={setPassword} secureTextEntry />
+            <AppTextInputController control={control} placeholder="Email" name={"email"}/>
+            <AppTextInputController control={control} placeholder="Password" name={"password"} secureTextEntry />
             <AppText style={styles.appName}>Smart E-Commerce</AppText>
-            <AppButton title="Login" onPress={onLoginPress} />
+            <AppButton title="Login" onPress={handleSubmit(onLoginPress)} />
             <AppButton
                 title="Sign Up"
                 style={styles.registerButton}

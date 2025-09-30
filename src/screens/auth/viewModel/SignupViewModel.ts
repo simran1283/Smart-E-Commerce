@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
+import { Alert } from "react-native";
 
 const useSignUpViewModel = () => {
     const [userName, setUserName] = useState("");
@@ -13,6 +14,11 @@ const useSignUpViewModel = () => {
         navigation.navigate("SignInScreen");
     };
 
+    const onCreateAccountPress = () => {
+        Alert.alert("Account Created")
+        navigation.navigate("BottomTabs")
+    }
+
     return {
         userName,
         email,
@@ -21,6 +27,7 @@ const useSignUpViewModel = () => {
         setEmail,
         setPassword,
         onGoToSignInPress,
+        onCreateAccountPress
     };
 };
 
