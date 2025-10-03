@@ -18,7 +18,7 @@ const BottomTabs = () =>{
                 marginTop : vs(4),
                 fontSize : s(12)
             },
-            tabBarStyle : IS_Android && {
+            tabBarStyle : {
                 height : vs(50)
             }
         }}>

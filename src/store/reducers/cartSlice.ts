@@ -50,7 +50,7 @@ const cartSlice = createSlice({
 
 
         // remove all products from cart
-        emptyCart: (state, action) => {
+        emptyCart: (state) => {
             state.items = []
         }
     }

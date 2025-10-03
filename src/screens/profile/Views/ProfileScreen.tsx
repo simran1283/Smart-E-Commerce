@@ -5,19 +5,20 @@ import { vs, s } from "react-native-size-matters"
 import { sharedPaddingHorizontal } from "../../../styles/shared-styles"
 import AppText from "../../../components/texts/View/AppText"
 import useProfile from "../ViewModel/ProfileViewModel"
+import LangBottomSheet from "../../../components/language/LangBottomSheet"
 
 const ProfileScreen = () => {
 
-    const { onMyOrdersPress } = useProfile()
+    const { onMyOrdersPress, showBottomSheet } = useProfile()
 
     return (
         <>
             <HomeHeader />
-            <AppText variant="bold" style={{fontSize : s(18), marginTop : vs(10), paddingHorizontal : sharedPaddingHorizontal}}>Hello, Simran</AppText>
             <View style={{paddingHorizontal : sharedPaddingHorizontal}}>
                 <ProfileSectionButton title="MyOrders" onPress={onMyOrdersPress}/>
-                <ProfileSectionButton title="Language" />
+                <ProfileSectionButton title="Language" onPress={showBottomSheet}/>
                 <ProfileSectionButton title="Logout" />
+                <LangBottomSheet/>
             </View>
         </>
     )

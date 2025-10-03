@@ -6,38 +6,18 @@ import { IS_Android } from "../../../constants/constants"
 import AppButton from "../../../components/Buttons/View/AppButton"
 import { useForm } from "react-hook-form"
 import AppTextInputController from "../../../components/Inputs/View/AppTextInputController"
-import * as yup from "yup"
 import { yupResolver } from "@hookform/resolvers/yup"
+import useCartViewModel from "../ViewModel/CartViewModel"
 
 
 const CheckoutScreen = () => {
 
-
-    const schema = yup.object({
-        fullName: yup
-            .string()
-            .required("Name is Required")
-            .min(3, "Name must be atleast 3 characters"),
-
-        phoneNumber: yup.string()
-            .required("Phone Number is Required")
-            .matches(/^[0-9]+/, "Phone Number should contain only numbers")
-            .min(10, "Phone Number must be atleast 10 characters"),
-
-        detailedAddress: yup.string()
-            .required("Address is required")
-    })
-
-    type FormData = yup.InferType<typeof schema>
+    const { schema, onSaveOrder } = useCartViewModel()
 
     const { handleSubmit, control } = useForm({
         resolver: yupResolver(schema)
     })
 
-    const onSaveOrder = (formData : FormData) => {
-        Alert.alert(JSON.stringify(formData))
-        console.log(formData)
-    }
 
     return (
         <View style={{ paddingHorizontal: sharedPaddingHorizontal, flex: 1 }}>

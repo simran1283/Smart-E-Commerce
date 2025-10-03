@@ -4,11 +4,16 @@ import ProductCard from "../../../components/Cards/View/ProductCard"
 import { products } from "../../../data/products"
 import { vs } from "react-native-size-matters"
 import useHome from "../ViewModel/HomeScreenViewModel"
+import { useEffect } from "react"
 
 
 const HomeScreen = () => {
 
-    const { onAddToCart } = useHome()
+    const { onAddToCart, fetchProducts, products } = useHome()
+
+    useEffect(()=>{
+        fetchProducts()
+    },[])
     
     return (
         <>

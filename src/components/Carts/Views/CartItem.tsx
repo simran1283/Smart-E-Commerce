@@ -31,12 +31,12 @@ const CartItem : FC<CartItems> = ({
                 <AppText style={styles.textTitle}>{title}</AppText>
                 <AppText style={styles.textPrice}>${price}</AppText>
                 <View style={styles.qtyContainer}>
-                    <Pressable style={styles.iconButton} onPress={onIncreasePress}>
-                        <FontAwesome name="plus" size={s(10)} color={AppColors.primary}/>
-                    </Pressable>
-                    <AppText style={styles.textQty}>{qty}</AppText>
                     <Pressable style={styles.iconButton} onPress={onDecreasePress}>
                         <FontAwesome name="minus" size={s(10)} color={AppColors.primary}/>
+                    </Pressable>
+                    <AppText style={styles.textQty}>{qty}</AppText>
+                    <Pressable style={styles.iconButton} onPress={onIncreasePress}>
+                        <FontAwesome name="plus" size={s(10)} color={AppColors.primary}/>
                     </Pressable>
                 </View>
             </View>

@@ -8,18 +8,17 @@ import { FC } from "react"
 import { OrderItem } from "../Model/OrderItemModel"
 
 
-const OrderItems : FC<OrderItem> = ({totalPrice, totalAmount, date}) => {
+const OrderItems : FC<OrderItem> = ({totalItemsPrice, orderTotal, date}) => {
     return(
         <View style={styles.container}>
             <AppText variant="bold">Order Details</AppText>
             <View style={styles.separator}/>
             <View style={styles.orderDetailContainer}>
-                <AppText style={styles.textTitle}>Total Price : {totalPrice}</AppText>
-                <AppText style={styles.textSubtitle}>{totalAmount} $</AppText>
+                <AppText style={styles.textTitle}>Total Price : {totalItemsPrice}</AppText>
+                <AppText style={styles.textSubtitle}>{orderTotal} $</AppText>
             </View>
              <View style={styles.orderDetailContainer}>
                 <AppText style={styles.textTitle}>Date : {date}</AppText>
-                <AppText style={styles.textSubtitle}>{date}</AppText>
             </View>
         </View>
     )

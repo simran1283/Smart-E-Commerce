@@ -1,15 +1,30 @@
 import { FlatList } from "react-native"
 import OrderItems from "../../../components/Orders/View/OrderItems"
 import { orders } from "../../../data/orders"
+import { useEffect } from "react"
+import getProducts from "../../home/Services/HomeDataService"
+import useProfile from "../ViewModel/ProfileViewModel"
+import DateTimeHelper from "../../../helpers/DateTimeHelper"
 
 
 
 const MyOrdersScreen = () => {
+
+    const { getProducts, userOrders } = useProfile()
+
+    useEffect(()=>{
+        getProducts()
+    },[])
+
     return(
         <FlatList
-        data={orders}
+        data={userOrders}
         keyExtractor={(item) => item.id.toString()}
-        renderItem={({item}) => <OrderItems {...item}/>}
+        renderItem={({item}) => <OrderItems 
+        totalItemsPrice={item.totalItemsPrice}
+        orderTotal={item.orderTotal}
+        date={DateTimeHelper(item.createdAt)}
+        />}
         />
     )
 }

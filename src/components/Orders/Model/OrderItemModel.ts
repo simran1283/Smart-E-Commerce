@@ -1,5 +1,5 @@
 export interface OrderItem {
-    totalPrice : string,
-    totalAmount : number,
+    totalItemsPrice : string,
+    orderTotal : number,
     date : string
 }

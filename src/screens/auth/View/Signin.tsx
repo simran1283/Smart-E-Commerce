@@ -2,12 +2,11 @@ import { Image, StyleSheet, View } from "react-native";
 import { IMAGES } from "../../../constants/images-paths";
 import { vs, s } from "react-native-size-matters";
 import { sharedPaddingHorizontal } from "../../../styles/shared-styles";
-import AppTextInput from "../../../components/Inputs/View/AppTextInput";
 import AppText from "../../../components/texts/View/AppText";
 import AppButton from "../../../components/Buttons/View/AppButton";
 import { AppColors } from "../../../styles/colors";
 import useSigninViewModel from "../viewModel/SigninViewModel";
-import * as yup from "yup"
+
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import AppTextInputController from "../../../components/Inputs/View/AppTextInputController";
@@ -16,19 +15,9 @@ import AppTextInputController from "../../../components/Inputs/View/AppTextInput
 const SigninScreen = () => {
     const {
         onLoginPress,
-        onSignUpPress
+        onSignUpPress,
+        schema
     } = useSigninViewModel();
-
-    
-    const schema = yup.object({
-        email : yup.string()
-        .required("Email is Required")
-        .email("Please enter a valid email"),
-
-        password : yup.string()
-        .required("Password is Required")
-        .min(6,"Password should contain atleast 6 characters")
-    })
 
 
     const { handleSubmit, control } = useForm({

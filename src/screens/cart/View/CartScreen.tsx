@@ -5,6 +5,7 @@ import HomeHeader from "../../../components/Headers/View/HomeHeader"
 import EmptyCart from "./EmptyCart"
 import AppButton from "../../../components/Buttons/View/AppButton"
 import useCartViewModel from "../ViewModel/CartViewModel"
+import { vs } from "react-native-size-matters"
 
 const CartScreen = () => {
 
@@ -27,7 +28,7 @@ const CartScreen = () => {
                             />}
                         showsVerticalScrollIndicator={false} />
                     <TotalViews itemsPrice={totalItemsPrice} orderTotal={orderTotal} />
-                    <AppButton title="Continue" onPress={onContinuePress} />
+                    <AppButton title="Continue" onPress={onContinuePress} style={{marginBottom : vs(10), width : "90%"}}/>
                 </>
 
             ) : (

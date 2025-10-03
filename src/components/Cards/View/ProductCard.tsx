@@ -26,7 +26,7 @@ const ProductCard : FC<ProductCardType> = ({onAddtoCartPress, title, price, Imag
             {/* Details container */}
             <View style={styles.detailsContainer}>
                 <AppText style={styles.titleText}>{title}</AppText>
-                <AppText style={styles.priceText}>${price}</AppText>
+                <AppText style={styles.priceText}>$ {price}</AppText>
             </View>
         </View>
     )
