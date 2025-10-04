@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { CartState } from "./ReducerModel/CartModel";
 
+// Cart Slice to maintain the items in the cart
 const initialState: CartState = {
     items: []
 }

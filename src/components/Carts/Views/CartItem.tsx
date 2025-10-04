@@ -4,9 +4,12 @@ import { vs, s } from "react-native-size-matters"
 import { AppColors } from "../../../styles/colors"
 import { AppFonts } from "../../../styles/Fonts"
 import { AntDesign, FontAwesome } from "@expo/vector-icons"
-import { FC } from "react"
+import { Component, FC } from "react"
 import { CartItems } from "../Model/CartModel"
 
+// Cart Item component displaying product details and having increment,decrement button to increase 
+// and decrease the quantity of a product as well as a delete button to remove an item from the cart
+// this component is displayed on the cart screen
 
 const CartItem : FC<CartItems> = ({
     title,

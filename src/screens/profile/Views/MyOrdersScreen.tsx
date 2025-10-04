@@ -1,12 +1,10 @@
 import { FlatList } from "react-native"
 import OrderItems from "../../../components/Orders/View/OrderItems"
-import { orders } from "../../../data/orders"
 import { useEffect } from "react"
-import getProducts from "../../home/Services/HomeDataService"
 import useProfile from "../ViewModel/ProfileViewModel"
 import DateTimeHelper from "../../../helpers/DateTimeHelper"
 
-
+// My orders screen displays the list of orders placed by the logged in user
 
 const MyOrdersScreen = () => {
 

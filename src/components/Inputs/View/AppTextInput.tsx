@@ -4,6 +4,7 @@ import { vs, s } from "react-native-size-matters"
 import { FC } from "react"
 import { AppTextInputProps } from "../Model/TextInputModel"
 
+// Text Input Component that helps in taking input from the user and is also used in app text input controller
 
 const AppTextInput:FC<AppTextInputProps> = ({value,onChangeText,placeholder,keyboardType,secureTextEntry,style}) =>{
     return(

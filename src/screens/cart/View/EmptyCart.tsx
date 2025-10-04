@@ -7,6 +7,8 @@ import AppButton from "../../../components/Buttons/View/AppButton"
 import useCartViewModel from "../ViewModel/CartViewModel"
 import { MaterialCommunityIcons } from "@expo/vector-icons"
 
+// When there is no item in the cart then the empty cart component will render
+
 const EmptyCart = () => {
     const { onStartPress } = useCartViewModel()
     return (

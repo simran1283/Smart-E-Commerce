@@ -5,6 +5,8 @@ import { AppColors } from "../../../styles/colors"
 import AppText from "../../texts/View/AppText"
 import { vs } from "react-native-size-matters"
 
+// App Text Input which is controlled by react hook form for validating the input fields and handling input data  
+
 interface AppTextInputControllerProps<T extends FieldValues> {
     control: Control<T>,
     name: Path<T>,

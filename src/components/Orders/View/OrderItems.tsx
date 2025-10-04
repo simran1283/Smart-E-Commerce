@@ -7,6 +7,7 @@ import { AppFonts } from "../../../styles/Fonts"
 import { FC } from "react"
 import { OrderItem } from "../Model/OrderItemModel"
 
+// Order Item component that will display the order details like order date, order total in myorders on profile screen
 
 const OrderItems : FC<OrderItem> = ({totalItemsPrice, orderTotal, date}) => {
     return(

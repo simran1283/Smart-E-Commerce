@@ -6,11 +6,12 @@ import AppText from "../../../components/texts/View/AppText";
 import AppButton from "../../../components/Buttons/View/AppButton";
 import { AppColors } from "../../../styles/colors";
 import useSigninViewModel from "../viewModel/SigninViewModel";
-
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import AppTextInputController from "../../../components/Inputs/View/AppTextInputController";
 
+// Sign in screen that will take input from user i.e email and password and will validate the data
+// Also compare the data with firestore databse to authenticate the user
 
 const SigninScreen = () => {
     const {

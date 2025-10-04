@@ -6,6 +6,10 @@ import { AppColors } from "../styles/colors"
 import { vs, s } from "react-native-size-matters"
 import { IS_Android } from "../constants/constants"
 import Ionicons from '@expo/vector-icons/Ionicons';
+
+// Bottom Tabs navigation that will be visible once user logged in to the app 
+// for switching between home, cart, and profile screens
+
 const BottomTabs = () =>{
 
     const Tabs =  createBottomTabNavigator()

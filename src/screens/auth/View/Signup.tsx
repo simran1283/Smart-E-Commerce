@@ -11,6 +11,9 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import AppTextInputController from "../../../components/Inputs/View/AppTextInputController";
 
+// Sign up screen that is used to create a new account fo user with username, email and password
+// will store the user credentials into the firestore database
+
 const SignUpScreen = () => {
     const {
         onGoToSignInPress,

@@ -4,6 +4,8 @@ import { vs, s } from "react-native-size-matters"
 import { Radio } from "../Model/RadioModel"
 import { AppColors } from "../../../styles/colors"
 
+// Radio Button used on the Profile screen for switching between different languages
+
 const RadioWithTitle = ({title, selected, onPress} : Radio) => {
     return(
         <TouchableOpacity style={styles.container} onPress={onPress}>

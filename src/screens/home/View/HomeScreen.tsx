@@ -6,6 +6,7 @@ import { vs } from "react-native-size-matters"
 import useHome from "../ViewModel/HomeScreenViewModel"
 import { useEffect } from "react"
 
+// Home screen will display a list of product cards
 
 const HomeScreen = () => {
 

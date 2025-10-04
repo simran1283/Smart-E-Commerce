@@ -6,6 +6,7 @@ import { AppFonts } from "../../../styles/Fonts"
 import { MaterialIcons } from "@expo/vector-icons"
 import { ProfileButton } from "../Model/ButtonModel"
 
+// Button Component used on Profile Screen
 const ProfileSectionButton = ({ onPress, title } : ProfileButton) => {
     return (
         <TouchableOpacity onPress={onPress} style={styles.container}>

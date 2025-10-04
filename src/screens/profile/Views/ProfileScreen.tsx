@@ -7,6 +7,8 @@ import AppText from "../../../components/texts/View/AppText"
 import useProfile from "../ViewModel/ProfileViewModel"
 import LangBottomSheet from "../../../components/language/LangBottomSheet"
 
+// Profile screen having language myorders and logout buttons
+
 const ProfileScreen = () => {
 
     const { onMyOrdersPress, showBottomSheet } = useProfile()

@@ -7,6 +7,8 @@ import AppButton from "../../../components/Buttons/View/AppButton"
 import useCartViewModel from "../ViewModel/CartViewModel"
 import { vs } from "react-native-size-matters"
 
+// Cart Screen that displays the items present in the cart for a particular user as well as the order details
+
 const CartScreen = () => {
 
     const { onContinuePress, onDecreasePress, onDeletePress, onIncreasePress, items, totalItemsPrice, orderTotal } = useCartViewModel()

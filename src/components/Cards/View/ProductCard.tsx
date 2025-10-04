@@ -8,6 +8,8 @@ import { commonStyles } from "../../../styles/shared-styles"
 import { FC } from "react"
 import { ProductCardType } from "../Model/CardModel"
 
+//  Product cards displaying information about a particular product with a add to cart button on it 
+//  and they will be displayed on the home screen
 
 const ProductCard : FC<ProductCardType> = ({onAddtoCartPress, title, price, ImageURL}) => {
     return (

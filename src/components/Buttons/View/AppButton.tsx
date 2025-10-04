@@ -6,7 +6,7 @@ import { FC } from "react"
 import { AppButtonProps } from "../Model/ButtonModel"
 
 
-
+// Button Component that is consistent for whole App
 const AppButton : FC<AppButtonProps> = ({ onPress, title, backgroundColor = AppColors.primary, textColor = AppColors.white, style, styleTitle, disabled = false }) => {
     return (
         <TouchableOpacity onPress={onPress}

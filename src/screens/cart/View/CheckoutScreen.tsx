@@ -9,6 +9,7 @@ import AppTextInputController from "../../../components/Inputs/View/AppTextInput
 import { yupResolver } from "@hookform/resolvers/yup"
 import useCartViewModel from "../ViewModel/CartViewModel"
 
+// Checkout screen is used to place an order after placing the order it will reflect in the myorders screen.
 
 const CheckoutScreen = () => {
 

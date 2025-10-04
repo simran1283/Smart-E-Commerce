@@ -6,6 +6,9 @@ import { FC } from "react"
 import { shippingFees, taxes } from "../../../constants/constants"
 import { TotalView } from "../Model/CartModel"
 
+// Total view component displaying the total items Price, taxes, shipping fees and order total for a particular user
+// and a continue button , by clicking on it you navigate to checkout screen and this component is visible on cart screen
+
 const TotalViews : FC<TotalView> = ({itemsPrice, orderTotal}) => {
     return (
         <View>
