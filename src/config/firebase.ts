@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
+import { API_KEY, APP_ID, AUTH_DOMAIN, MEASUREMENT_ID, MESSAGING_SENDER_ID, PROJECT_ID, STORAGE_BUCKET } from './firebaseConfig';
 
 // Optionally import the services that you want to use
 // import {...} from 'firebase/database';
@@ -9,13 +10,13 @@ import { getFirestore } from 'firebase/firestore';
 
 // Initialize Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyD3ZaiH82XQd7nlolNJ2v894XOci_yDrF4",
-  authDomain: "smart-e-commerce-app-a7d82.firebaseapp.com",
-  projectId: "smart-e-commerce-app-a7d82",
-  storageBucket: "smart-e-commerce-app-a7d82.firebasestorage.app",
-  messagingSenderId: "991848679149",
-  appId: "1:991848679149:web:18c1a985568f746b5beee4",
-  measurementId: "G-9XMW400T0P"
+  apiKey: API_KEY,
+  authDomain: AUTH_DOMAIN,
+  projectId: PROJECT_ID,
+  storageBucket: STORAGE_BUCKET,
+  messagingSenderId: MESSAGING_SENDER_ID,
+  appId: APP_ID,
+  measurementId: MEASUREMENT_ID
 };
 
 

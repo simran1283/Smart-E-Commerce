@@ -1,4 +1,5 @@
 
 export interface UserState {
-    userData : object;
+    userData : object | null;
+    isLoading : boolean
 }

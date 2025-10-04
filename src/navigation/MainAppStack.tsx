@@ -5,16 +5,18 @@ import CheckoutScreen from "../screens/cart/View/CheckoutScreen"
 import MyOrdersScreen from "../screens/profile/Views/MyOrdersScreen"
 import AsyncStorage from "@react-native-async-storage/async-storage"
 import { useDispatch, useSelector } from "react-redux"
-import { setUserData } from "../store/reducers/userSlice"
+import { setLoading, setUserData } from "../store/reducers/userSlice"
 import { useEffect } from "react"
 import { RootState } from "../store/store"
+import { ActivityIndicator, View } from "react-native"
+import { AppColors } from "../styles/colors"
 
 // Main App Stack that is the parent navigation for all other navigations 
 // Conditionally rendering of screens on the basis of if user is loggedin or not
 
 const MainAppStack = () => {
 
-    const {userData} = useSelector((state : RootState) => state.userSlice)
+    const {userData, isLoading} = useSelector((state : RootState) => state.userSlice)
 
     const Stack = createStackNavigator()
 
@@ -27,10 +29,13 @@ const MainAppStack = () => {
 
         if(storedUser){
             dispatch(setUserData(JSON.parse(storedUser)))
+        }else{
+            dispatch(setLoading(false))
         }
             
         } catch (error) {
             console.log(error)
+            dispatch(setLoading(false))
         }
         
     }
@@ -38,6 +43,14 @@ const MainAppStack = () => {
     useEffect(()=> {
         isUserLoggedIn()
     },[])
+
+    if(isLoading){
+        return (
+            <View style={{flex : 1,alignItems : "center",justifyContent :"center"}}>
+                <ActivityIndicator size={"large"} color={AppColors.black}/>
+            </View>
+        )
+    }
 
 
     return(

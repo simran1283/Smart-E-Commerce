@@ -11,7 +11,7 @@ import LangBottomSheet from "../../../components/language/LangBottomSheet"
 
 const ProfileScreen = () => {
 
-    const { onMyOrdersPress, showBottomSheet } = useProfile()
+    const { onMyOrdersPress, showBottomSheet, handleLogout } = useProfile()
 
     return (
         <>
@@ -19,7 +19,7 @@ const ProfileScreen = () => {
             <View style={{paddingHorizontal : sharedPaddingHorizontal}}>
                 <ProfileSectionButton title="MyOrders" onPress={onMyOrdersPress}/>
                 <ProfileSectionButton title="Language" onPress={showBottomSheet}/>
-                <ProfileSectionButton title="Logout" />
+                <ProfileSectionButton title="Logout" onPress={handleLogout}/>
                 <LangBottomSheet/>
             </View>
         </>
