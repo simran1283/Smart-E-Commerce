@@ -7,6 +7,15 @@ import { useState } from "react"
 const useHome = () => {
 
     const [products,setProducts] = useState<Product []>([])
+    const [isRefreshing,setIsRefreshing] = useState(false)
+
+    const handleRefresh = async() => {
+        setIsRefreshing(true)
+        const data = await getProducts()
+        setProducts(data)
+        setIsRefreshing(false)
+    }
+
     const dispatch = useDispatch()
 
     const onAddToCart = (item : Product) => {
@@ -22,7 +31,9 @@ const useHome = () => {
     return {
         onAddToCart,
         fetchProducts,
-        products
+        products,
+        isRefreshing,
+        handleRefresh
     }
 }
 

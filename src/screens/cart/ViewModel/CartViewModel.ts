@@ -8,7 +8,7 @@ import * as yup from "yup"
 import { addDoc, collection, doc } from "firebase/firestore"
 import { orders } from "../../../data/orders"
 import { showMessage } from "react-native-flash-message"
-import { db } from "../../../config/firebase"
+import { auth, db } from "../../../config/firebase"
 
 const useCartViewModel = () => {
 
@@ -17,6 +17,8 @@ const useCartViewModel = () => {
     const dispatch = useDispatch()
 
     const { userData } = useSelector((state : RootState) => state.userSlice)
+
+    // const userData  =  auth.currentUser?.uid
 
     const schema = yup.object({
         fullName: yup
@@ -58,7 +60,7 @@ const useCartViewModel = () => {
     
     const onSaveOrder = async (formData: FormData) => {
 
-        console.log(userData)
+        console.log("USERRRRRRRR DATAAAAAAAAAA: ",userData)
 
         try {
 

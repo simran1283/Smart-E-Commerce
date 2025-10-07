@@ -3,6 +3,8 @@ import fetchUserOrders from "../Services/MyOrdersService"
 import { useState } from "react"
 import { SheetManager } from "react-native-actions-sheet"
 import AsyncStorage from "@react-native-async-storage/async-storage"
+import { signOut } from "firebase/auth"
+import { auth } from "../../../config/firebase"
 
 
 const useProfile = () => {
@@ -17,6 +19,7 @@ const useProfile = () => {
 
     const getProducts = async () =>{
         const res = await fetchUserOrders()
+        console.log(res)
         setUserOrders(res)
     }
 
@@ -27,6 +30,7 @@ const useProfile = () => {
     const handleLogout = async () => {
         await AsyncStorage.removeItem("USER_DATA")
         navigation.navigate("Authstack")
+        await signOut(auth)
     }
 
     return {

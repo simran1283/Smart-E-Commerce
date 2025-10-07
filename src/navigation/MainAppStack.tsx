@@ -5,44 +5,47 @@ import CheckoutScreen from "../screens/cart/View/CheckoutScreen"
 import MyOrdersScreen from "../screens/profile/Views/MyOrdersScreen"
 import AsyncStorage from "@react-native-async-storage/async-storage"
 import { useDispatch, useSelector } from "react-redux"
-import { setLoading, setUserData } from "../store/reducers/userSlice"
-import { useEffect } from "react"
+import { setUserData } from "../store/reducers/userSlice"
+import { useEffect, useState } from "react"
 import { RootState } from "../store/store"
 import { ActivityIndicator, View } from "react-native"
 import { AppColors } from "../styles/colors"
+import { onAuthStateChanged } from "firebase/auth"
+import { auth } from "../config/firebase"
 
 // Main App Stack that is the parent navigation for all other navigations 
 // Conditionally rendering of screens on the basis of if user is loggedin or not
 
 const MainAppStack = () => {
 
-    const {userData, isLoading} = useSelector((state : RootState) => state.userSlice)
-
     const Stack = createStackNavigator()
 
     const dispatch = useDispatch()
 
-    const isUserLoggedIn = async() =>{
-        try {
+    const [isLoading, setIsLoading] = useState<boolean>(true)
+    // const [userData, setUserData] = useState<object | null>(null)
 
-            const storedUser = await AsyncStorage.getItem("USER_DATA")
+    const userData = useSelector((state : RootState) => state.userSlice)
 
-        if(storedUser){
-            dispatch(setUserData(JSON.parse(storedUser)))
-        }else{
-            dispatch(setLoading(false))
-        }
-            
-        } catch (error) {
-            console.log(error)
-            dispatch(setLoading(false))
-        }
-        
-    }
-
-    useEffect(()=> {
-        isUserLoggedIn()
+    useEffect(()=>{
+        onAuthStateChanged(auth,(userDataFromFirebase)=>{
+            if(userDataFromFirebase){
+                console.log("User Logged IN")
+                setIsLoading(false)
+                // setUserData(userDataFromFirebase)
+                const userOBJ = {
+                    uid : userDataFromFirebase.uid,
+                   email : userDataFromFirebase.email
+                }
+                dispatch(setUserData(userOBJ))
+            }else{
+                console.log("User Logged OUT")
+                setIsLoading(false)
+                 dispatch(setUserData(null))
+            }
+        })
     },[])
+    console.log(JSON.stringify(userData,null,3))
 
     if(isLoading){
         return (

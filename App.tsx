@@ -5,7 +5,8 @@ import { useFonts } from 'expo-font';
 import { ActivityIndicator, StyleSheet } from 'react-native';
 import AppSafeView from './src/components/views/View/AppSafeView';
 import { Provider } from 'react-redux';
-import { store } from './src/store/store';
+import { Persistor, store } from './src/store/store';
+import { PersistGate } from 'redux-persist/integration/react';
 
 
 export default function App() {
@@ -21,13 +22,17 @@ export default function App() {
     )
 
   return (
+
     <AppSafeView>
       <Provider store={store}>
-      <NavigationContainer>
-        <FlashMessage position={"top"} />
-        <MainAppStack />
-      </NavigationContainer>
+        <PersistGate persistor={Persistor}>
+        <NavigationContainer>
+          <FlashMessage position={"top"} />
+          <MainAppStack />
+        </NavigationContainer>
+        </PersistGate>
       </Provider>
     </AppSafeView>
+
   );
 }

@@ -6,10 +6,10 @@ import { store } from "../../../store/store"
 const fetchUserOrders = async () =>{
 
     try {
-        //userid from redux
-        const userIdfromRedux = store.getState().userSlice.userData.uid
-
-        //user Id from firebase
+        // userid from redux
+        // const userIdfromRedux = store.getState().userSlice.userData
+        // console.log("userid from redux", userIdfromRedux)
+        // //user Id from firebase
         const userIdfromFirebase = auth.currentUser?.uid
 
         const userOrderref = collection(doc(db,"users",userIdfromFirebase),"orders")

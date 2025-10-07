@@ -10,7 +10,7 @@ import { useEffect } from "react"
 
 const HomeScreen = () => {
 
-    const { onAddToCart, fetchProducts, products } = useHome()
+    const { onAddToCart, fetchProducts, products, isRefreshing, handleRefresh } = useHome()
 
     useEffect(()=>{
         fetchProducts()
@@ -39,6 +39,8 @@ const HomeScreen = () => {
                     paddingHorizontal: vs(10)
                 }}
                 showsVerticalScrollIndicator = {false}
+                refreshing = {isRefreshing}
+                onRefresh={handleRefresh}
             />
         </>
     )

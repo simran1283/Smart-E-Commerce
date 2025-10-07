@@ -10,19 +10,19 @@ const MyOrdersScreen = () => {
 
     const { getProducts, userOrders } = useProfile()
 
-    useEffect(()=>{
+    useEffect(() => {
         getProducts()
-    },[])
+    }, [])
 
-    return(
+    return (
         <FlatList
-        data={userOrders}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({item}) => <OrderItems 
-        totalItemsPrice={item.totalItemsPrice}
-        orderTotal={item.orderTotal}
-        date={DateTimeHelper(item.createdAt)}
-        />}
+            data={userOrders}
+            keyExtractor={(item) => item.id.toString()}
+            renderItem={({ item }) => <OrderItems
+                totalItemsPrice={item.totalItemsPrice}
+                orderTotal={item.orderTotal}
+                date={DateTimeHelper(item.createdAt)}
+            />}
         />
     )
 }
