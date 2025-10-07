@@ -8,7 +8,8 @@ export interface CartItem {
 }
 
 export interface CartState {
-    items : CartItem[]
+    itemsByUser : object,
+    currentUserId : string | null
 }
 
 export interface Product {

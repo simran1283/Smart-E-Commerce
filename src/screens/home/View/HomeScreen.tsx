@@ -1,20 +1,29 @@
 import HomeHeader from "../../../components/Headers/View/HomeHeader"
-import { FlatList } from "react-native"
+import { ActivityIndicator, FlatList, View } from "react-native"
 import ProductCard from "../../../components/Cards/View/ProductCard"
 import { products } from "../../../data/products"
 import { vs } from "react-native-size-matters"
 import useHome from "../ViewModel/HomeScreenViewModel"
 import { useEffect } from "react"
+import { AppColors } from "../../../styles/colors"
 
 // Home screen will display a list of product cards
 
 const HomeScreen = () => {
 
-    const { onAddToCart, fetchProducts, products, isRefreshing, handleRefresh } = useHome()
+    const { onAddToCart, fetchProducts, products, isRefreshing, handleRefresh, isLoading } = useHome()
 
     useEffect(()=>{
         fetchProducts()
     },[])
+
+    if(isLoading){
+        return(
+            <View style={{flex : 1, alignItems : "center", justifyContent : "center"}}>
+                <ActivityIndicator size={"large"} color={AppColors.primary}/>
+            </View>
+        )
+    }
     
     return (
         <>

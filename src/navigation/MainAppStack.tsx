@@ -3,7 +3,6 @@ import AuthStack from "./AuthStack"
 import BottomTabs from "./BottomTabs"
 import CheckoutScreen from "../screens/cart/View/CheckoutScreen"
 import MyOrdersScreen from "../screens/profile/Views/MyOrdersScreen"
-import AsyncStorage from "@react-native-async-storage/async-storage"
 import { useDispatch, useSelector } from "react-redux"
 import { setUserData } from "../store/reducers/userSlice"
 import { useEffect, useState } from "react"
@@ -12,6 +11,7 @@ import { ActivityIndicator, View } from "react-native"
 import { AppColors } from "../styles/colors"
 import { onAuthStateChanged } from "firebase/auth"
 import { auth } from "../config/firebase"
+import { setUserId } from "../store/reducers/cartSlice"
 
 // Main App Stack that is the parent navigation for all other navigations 
 // Conditionally rendering of screens on the basis of if user is loggedin or not
@@ -25,7 +25,7 @@ const MainAppStack = () => {
     const [isLoading, setIsLoading] = useState<boolean>(true)
     // const [userData, setUserData] = useState<object | null>(null)
 
-    const userData = useSelector((state : RootState) => state.userSlice)
+    const userData = useSelector((state : RootState) => state.userSlice.userData)
 
     useEffect(()=>{
         onAuthStateChanged(auth,(userDataFromFirebase)=>{
@@ -38,10 +38,12 @@ const MainAppStack = () => {
                    email : userDataFromFirebase.email
                 }
                 dispatch(setUserData(userOBJ))
+                dispatch(setUserId(userOBJ.uid))
             }else{
                 console.log("User Logged OUT")
                 setIsLoading(false)
                  dispatch(setUserData(null))
+                 dispatch(setUserId(null))
             }
         })
     },[])

@@ -8,6 +8,7 @@ const useHome = () => {
 
     const [products,setProducts] = useState<Product []>([])
     const [isRefreshing,setIsRefreshing] = useState(false)
+    const [isLoading,setIsLoading] = useState(false)
 
     const handleRefresh = async() => {
         setIsRefreshing(true)
@@ -23,9 +24,10 @@ const useHome = () => {
     }
 
     const fetchProducts = async () => {
-
+        setIsLoading(true)
         const data = await getProducts()
         setProducts(data)
+        setIsLoading(false)
     }
 
     return {
@@ -33,7 +35,8 @@ const useHome = () => {
         fetchProducts,
         products,
         isRefreshing,
-        handleRefresh
+        handleRefresh,
+        isLoading
     }
 }
 

@@ -10,6 +10,7 @@ import { auth } from "../../../config/firebase"
 const useProfile = () => {
 
     const [userOrders,setUserOrders] = useState([])
+    const [isLoading, setIsLoading] = useState(false)
 
     const navigation = useNavigation()
 
@@ -18,9 +19,11 @@ const useProfile = () => {
     }
 
     const getProducts = async () =>{
+        setIsLoading(true)
         const res = await fetchUserOrders()
         console.log(res)
         setUserOrders(res)
+        setIsLoading(false)
     }
 
     const showBottomSheet = () => {
@@ -38,7 +41,8 @@ const useProfile = () => {
         getProducts,
         userOrders,
         showBottomSheet,
-        handleLogout
+        handleLogout,
+        isLoading
     }
 }
 

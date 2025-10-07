@@ -3,7 +3,8 @@ import { CartState } from "./ReducerModel/CartModel";
 
 // Cart Slice to maintain the items in the cart
 const initialState: CartState = {
-    items: []
+    itemsByUser: {},
+    currentUserId: null
 }
 
 const cartSlice = createSlice({
@@ -12,51 +13,76 @@ const cartSlice = createSlice({
 
     reducers: {
 
+        setUserId: (state, action) => {
+            state.currentUserId = action.payload
+        },
+
         // add an item to cart if item already exist then increase the quantity
         addItemToCart: (state, action) => {
 
-            const existingItem = state.items.find(item => item.id === action.payload.id)
+            const uid = state.currentUserId
+
+            if (!uid) return
+
+            const userCart = state.itemsByUser[uid] || []
+            const existingItem = userCart.find(item => item.id === action.payload.id)
 
             if (existingItem) {
                 existingItem.qty += 1
                 existingItem.sum += existingItem.price
             }
             else {
-                state.items.push({
+                userCart.push({
                     ...action.payload,
                     qty: 1,
                     sum: action.payload.price
                 })
             }
+            state.itemsByUser[uid] = userCart
         },
 
         // decrease quantity of an item if present or else remove prolduct from cart
         removeItemFromCart: (state, action) => {
 
-            const existingItem = state.items.find(item => item.id === action.payload.id)
+            const uid = state.currentUserId;
+            if (!uid) return;
+
+            let userCart = state.itemsByUser[uid] || [];
+
+            const existingItem = userCart.find(item => item.id === action.payload.id)
 
             if (existingItem && existingItem.qty != 1) {
                 existingItem.qty -= 1
                 existingItem.sum -= existingItem.price
             }
             else {
-                state.items = state.items.filter(item => item.id != action.payload.id)
+                userCart = userCart.filter(item => item.id != action.payload.id)
             }
+
+            state.itemsByUser[uid] = userCart
         },
 
         // remove a product from cart
         removeProductFromCart: (state, action) => {
-            state.items = state.items.filter(item => item.id != action.payload.id)
+            const uid = state.currentUserId;
+            if (!uid) return;
+
+            let userCart = state.itemsByUser[uid] || [];
+            userCart = userCart.filter(item => item.id != action.payload.id)
+            state.itemsByUser[uid] = userCart
         },
 
 
         // remove all products from cart
         emptyCart: (state) => {
-            state.items = []
+            const uid = state.currentUserId;
+            if (!uid) return;
+
+            state.itemsByUser[uid] = []
         }
     }
 })
 
-export const { addItemToCart, removeItemFromCart, removeProductFromCart, emptyCart } = cartSlice.actions
+export const { addItemToCart, removeItemFromCart, removeProductFromCart, emptyCart, setUserId } = cartSlice.actions
 
 export default cartSlice.reducer

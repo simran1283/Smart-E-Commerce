@@ -1,4 +1,4 @@
-import { Alert, StyleSheet, View } from "react-native"
+import { ActivityIndicator, Alert, StyleSheet, View } from "react-native"
 import { commonStyles, sharedPaddingHorizontal } from "../../../styles/shared-styles"
 import { s, vs } from "react-native-size-matters"
 import { AppColors } from "../../../styles/colors"
@@ -13,12 +13,19 @@ import useCartViewModel from "../ViewModel/CartViewModel"
 
 const CheckoutScreen = () => {
 
-    const { schema, onSaveOrder } = useCartViewModel()
+    const { schema, onSaveOrder, isLoading } = useCartViewModel()
 
     const { handleSubmit, control } = useForm({
         resolver: yupResolver(schema)
     })
 
+    if(isLoading){
+        return(
+            <View style={{flex: 1, alignItems : "center", justifyContent :"center"}}>
+                <ActivityIndicator size={"large"} color={AppColors.primary}/>
+            </View>
+        )
+    }
 
     return (
         <View style={{ paddingHorizontal: sharedPaddingHorizontal, flex: 1 }}>

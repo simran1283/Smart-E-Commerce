@@ -9,14 +9,17 @@ import { addDoc, collection, doc } from "firebase/firestore"
 import { orders } from "../../../data/orders"
 import { showMessage } from "react-native-flash-message"
 import { auth, db } from "../../../config/firebase"
+import { useState } from "react"
 
 const useCartViewModel = () => {
+
+    const [isLoading, setIsLoading] = useState(false)
 
     const navigation = useNavigation()
 
     const dispatch = useDispatch()
 
-    const { userData } = useSelector((state : RootState) => state.userSlice)
+    const { userData } = useSelector((state: RootState) => state.userSlice)
 
     // const userData  =  auth.currentUser?.uid
 
@@ -45,61 +48,65 @@ const useCartViewModel = () => {
         navigation.navigate("CheckoutScreen")
     }
 
-    const onDeletePress = (item : CartItem) => {
+    const onDeletePress = (item: CartItem) => {
         dispatch(removeProductFromCart(item))
     }
 
-    const onDecreasePress = (item : CartItem) => {
+    const onDecreasePress = (item: CartItem) => {
         dispatch(removeItemFromCart(item))
     }
 
-    const onIncreasePress = (item : CartItem) => {
+    const onIncreasePress = (item: CartItem) => {
         dispatch(addItemToCart(item))
     }
 
-    
-    const onSaveOrder = async (formData: FormData) => {
 
-        console.log("USERRRRRRRR DATAAAAAAAAAA: ",userData)
+    const onSaveOrder = async (formData: FormData) => {
+        setIsLoading(true)
+        console.log("USERRRRRRRR DATAAAAAAAAAA: ", userData)
 
         try {
 
             const orderBody = {
                 ...formData,
                 items,
-                createdAt : new Date(),
+                createdAt: new Date(),
                 totalItemsPrice,
                 orderTotal
             }
 
-            const userOrderRef = collection(doc(db,"users",userData.uid),"orders")
-            await addDoc(userOrderRef,orderBody)
+            const userOrderRef = collection(doc(db, "users", userData.uid), "orders")
+            await addDoc(userOrderRef, orderBody)
 
-            const orderRef = collection(db,"orders")
-            await addDoc(orderRef,orderBody)
-
+            const orderRef = collection(db, "orders")
+            await addDoc(orderRef, orderBody)
+            setIsLoading(false)
             navigation.goBack()
 
             showMessage({
-                type : "success",
-                message : "Order Placed Successfully ! "
+                type: "success",
+                message: "Order Placed Successfully ! "
             })
             dispatch(emptyCart())
         }
-        
+
         catch (error) {
-            console.log("An error occurred",error)
+            console.log("An error occurred", error)
             showMessage({
-                type :"danger",
-                message : "Ann error occurred !"
+                type: "danger",
+                message: "Ann error occurred !"
             })
         }
 
     }
 
-    const items =  useSelector((state : RootState) => state.cartSlice.items)
+    const currentUserId = useSelector((state: RootState) => state.cartSlice.currentUserId);
+    const items = useSelector((state: RootState) =>
+        state.cartSlice.itemsByUser[currentUserId] || []
+    );
 
-    const totalItemsPrice = items.reduce((acc,item) => acc + item.price * item.qty,0)
+
+    const totalItemsPrice = items.reduce((acc, item) => acc + item.price * item.qty, 0)
 
     const orderTotal = totalItemsPrice + taxes + shippingFees
 
@@ -114,7 +121,7 @@ const useCartViewModel = () => {
         totalItemsPrice,
         orderTotal,
         schema,
-        onSaveOrder
+        onSaveOrder, isLoading
     }
 }
 

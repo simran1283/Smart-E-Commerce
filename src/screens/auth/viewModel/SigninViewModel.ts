@@ -35,7 +35,8 @@ const useSigninViewModel = () => {
                 formData.password
             )
             const userDataObj = {
-                uid : userCredential.user.uid
+                uid : userCredential.user.uid,
+                email : userCredential.user.email
             }
             dispatch(setUserData(userDataObj))
             navigation.navigate("BottomTabs");
