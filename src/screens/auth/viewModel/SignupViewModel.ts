@@ -49,28 +49,28 @@ const useSignUpViewModel = () => {
             navigation.navigate("BottomTabs")
 
             const userDataObj = {
-                uid : userCredential.user.uid,
-                email : userCredential.user.email
+                uid: userCredential.user.uid,
+                email: userCredential.user.email
             }
             dispatch(setUserData(userDataObj))
         }
-        catch (err : any) {
+        catch (err: any) {
 
             let errorMessage = ""
 
-            if(err.code === "auth/email-already-in-use"){
+            if (err.code === "auth/email-already-in-use") {
                 errorMessage = "This email is already in use"
-            }else if(err.code === "auth/invalid-email"){
+            } else if (err.code === "auth/invalid-email") {
                 errorMessage = "Invalid Email ! "
-            }else if(err.code === "auth/weak-password"){
+            } else if (err.code === "auth/weak-password") {
                 errorMessage = "This Password is too weak ! "
-            }else{
+            } else {
                 errorMessage = "Ann error occurred during sign-up"
             }
 
             showMessage({
-                type : "danger",
-                message : errorMessage
+                type: "danger",
+                message: errorMessage
             })
         }
 

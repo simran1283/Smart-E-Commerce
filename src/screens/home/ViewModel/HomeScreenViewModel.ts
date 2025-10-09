@@ -7,13 +7,13 @@ import { useNavigation } from "@react-navigation/native"
 
 const useHome = () => {
 
-    const [products,setProducts] = useState<Product []>([])
-    const [isRefreshing,setIsRefreshing] = useState(false)
-    const [isLoading,setIsLoading] = useState(false)
+    const [products, setProducts] = useState<Product[]>([])
+    const [isRefreshing, setIsRefreshing] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
 
     const navigation = useNavigation()
 
-    const handleRefresh = async() => {
+    const handleRefresh = async () => {
         setIsRefreshing(true)
         const data = await getProducts()
         setProducts(data)
@@ -22,7 +22,7 @@ const useHome = () => {
 
     const dispatch = useDispatch()
 
-    const onAddToCart = (item : Product) => {
+    const onAddToCart = (item: Product) => {
         dispatch(addItemToCart(item))
     }
 
@@ -33,7 +33,7 @@ const useHome = () => {
         setIsLoading(false)
     }
 
-    const handleDetail = () =>{
+    const handleDetail = () => {
         navigation.navigate("ProductDetail")
     }
 

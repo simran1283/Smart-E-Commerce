@@ -6,25 +6,25 @@ import { AppSafeViewProps } from "../Model/AppSafeViewModel"
 
 // App Safe View that contain the whole App so that the App content doesnot overlap the status bar and notch on mobile screens.
 
-const AppSafeView : FC<AppSafeViewProps> = ({ children, style }) =>{
+const AppSafeView: FC<AppSafeViewProps> = ({ children, style }) => {
     return (
         <SafeAreaView style={styles.safeView}>
-            <View style={[styles.container,style]}>
+            <View style={[styles.container, style]}>
                 {children}
             </View>
         </SafeAreaView>
     )
-        
+
 }
 
 export default AppSafeView
 
 const styles = StyleSheet.create({
-    safeView :{
-        flex : 1,
-        backgroundColor  :AppColors.white
+    safeView: {
+        flex: 1,
+        backgroundColor: AppColors.white
     },
-    container :{
-        flex : 1
+    container: {
+        flex: 1
     }
 })

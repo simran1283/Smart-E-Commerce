@@ -13,20 +13,20 @@ const useSigninViewModel = () => {
     const dispatch = useDispatch()
 
     //validations
-        const schema = yup.object({
-            email : yup.string()
+    const schema = yup.object({
+        email: yup.string()
             .required("Email is Required")
             .email("Please enter a valid email"),
-    
-            password : yup.string()
+
+        password: yup.string()
             .required("Password is Required")
-            .min(6,"Password should contain atleast 6 characters")
-        })
+            .min(6, "Password should contain atleast 6 characters")
+    })
 
-      type FormData = yup.InferType<typeof schema>
+    type FormData = yup.InferType<typeof schema>
 
-      //Sign in user with Firebase
-    const onLoginPress = async (formData : FormData) => {
+    //Sign in user with Firebase
+    const onLoginPress = async (formData: FormData) => {
 
         try {
             const userCredential = await signInWithEmailAndPassword(
@@ -35,29 +35,29 @@ const useSigninViewModel = () => {
                 formData.password
             )
             const userDataObj = {
-                uid : userCredential.user.uid,
-                email : userCredential.user.email
+                uid: userCredential.user.uid,
+                email: userCredential.user.email
             }
             dispatch(setUserData(userDataObj))
             navigation.navigate("BottomTabs");
 
-        } catch (err : any) {
-            
+        } catch (err: any) {
+
             let errorMessage = ""
 
             //error handling
-            if(err.code === "auth/invalid-credential"){
+            if (err.code === "auth/invalid-credential") {
                 errorMessage = "Invalid email or Password"
-            }else if(err.code === "auth/user-not-found"){
+            } else if (err.code === "auth/user-not-found") {
                 errorMessage = "User Not Found"
-            }else{
+            } else {
                 errorMessage = "An error occurred during sign-in"
             }
 
             //flash message
             showMessage({
-                type : "danger",
-                message : errorMessage
+                type: "danger",
+                message: errorMessage
             })
         }
     };

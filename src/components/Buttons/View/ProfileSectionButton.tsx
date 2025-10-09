@@ -7,14 +7,14 @@ import { MaterialIcons } from "@expo/vector-icons"
 import { ProfileButton } from "../Model/ButtonModel"
 
 // Button Component used on Profile Screen
-const ProfileSectionButton = ({ onPress, title } : ProfileButton) => {
+const ProfileSectionButton = ({ onPress, title }: ProfileButton) => {
     return (
         <TouchableOpacity onPress={onPress} style={styles.container}>
             <View style={styles.textContainer}>
                 <AppText style={styles.textTitle}>{title}</AppText>
             </View>
             <View>
-                 <MaterialIcons name="arrow-forward-ios" size={s(16)} color={AppColors.medGray}/>
+                <MaterialIcons name="arrow-forward-ios" size={s(16)} color={AppColors.medGray} />
             </View>
         </TouchableOpacity>
     )
@@ -29,17 +29,17 @@ const styles = StyleSheet.create({
         paddingBottom: vs(10),
         marginTop: vs(14),
         flexDirection: "row",
-        borderBottomWidth : 1
+        borderBottomWidth: 1
     },
     textTitle: {
         fontSize: s(14),
         color: AppColors.primary,
         fontFamily: AppFonts.Medium
     },
-    textContainer : {
-        flex : 5,
-        marginHorizontal : s(8),
-        alignItems : "flex-start",
-        justifyContent : "flex-start"
+    textContainer: {
+        flex: 5,
+        marginHorizontal: s(8),
+        alignItems: "flex-start",
+        justifyContent: "flex-start"
     }
 })

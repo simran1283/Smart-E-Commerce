@@ -11,7 +11,7 @@ import { CartItems } from "../Model/CartModel"
 // and decrease the quantity of a product as well as a delete button to remove an item from the cart
 // this component is displayed on the cart screen
 
-const CartItem : FC<CartItems> = ({
+const CartItem: FC<CartItems> = ({
     title,
     price,
     imageURL,
@@ -24,27 +24,27 @@ const CartItem : FC<CartItems> = ({
 
         <View style={styles.container}>
 
-        {/* Image container */}
+            {/* Image container */}
             <View style={styles.ImageContainer}>
                 <Image source={{ uri: imageURL }} style={styles.image} />
             </View>
 
-         {/* Product Details container */}
+            {/* Product Details container */}
             <View style={styles.DetailsContainer}>
                 <AppText style={styles.textTitle}>{title}</AppText>
                 <AppText style={styles.textPrice}>${price}</AppText>
                 <View style={styles.qtyContainer}>
                     <Pressable style={styles.iconButton} onPress={onDecreasePress}>
-                        <FontAwesome name="minus" size={s(10)} color={AppColors.primary}/>
+                        <FontAwesome name="minus" size={s(10)} color={AppColors.primary} />
                     </Pressable>
                     <AppText style={styles.textQty}>{qty}</AppText>
                     <Pressable style={styles.iconButton} onPress={onIncreasePress}>
-                        <FontAwesome name="plus" size={s(10)} color={AppColors.primary}/>
+                        <FontAwesome name="plus" size={s(10)} color={AppColors.primary} />
                     </Pressable>
                 </View>
             </View>
 
-         {/* Delete Button Container */}
+            {/* Delete Button Container */}
             <View style={styles.DeleteContainer}>
                 <Pressable style={styles.deleteButton} onPress={onDeletePress}>
                     <AntDesign name="delete" size={s(14)} color={AppColors.red} />
@@ -63,9 +63,9 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: "row",
         width: "100%",
-        borderBottomColor : AppColors.blueGray,
-        borderBottomWidth : 3,
-        paddingBottom : vs(4)
+        borderBottomColor: AppColors.blueGray,
+        borderBottomWidth: 3,
+        paddingBottom: vs(4)
     },
     ImageContainer: {
         flex: 1.6,
@@ -77,8 +77,8 @@ const styles = StyleSheet.create({
     },
     DeleteContainer: {
         flex: 1.2,
-        justifyContent : "flex-end",
-        paddingEnd : s(20)
+        justifyContent: "flex-end",
+        paddingEnd: s(20)
     },
     image: {
         width: s(80),
@@ -104,34 +104,34 @@ const styles = StyleSheet.create({
         marginTop: vs(3),
         marginLeft: s(7)
     },
-    deleteButton : {
-        flexDirection : "row",
-        alignItems : "center",
+    deleteButton: {
+        flexDirection: "row",
+        alignItems: "center",
     },
-    qtyContainer : {
-        alignItems : "center",
-        justifyContent : "center",
-        flexDirection : "row",
-        borderRadius : s(30),
-        borderWidth : s(1),
-        borderColor : AppColors.blueGray,
-        width : s(80),
-        paddingHorizontal : s(5),
-        paddingVertical : s(5)
+    qtyContainer: {
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection: "row",
+        borderRadius: s(30),
+        borderWidth: s(1),
+        borderColor: AppColors.blueGray,
+        width: s(80),
+        paddingHorizontal: s(5),
+        paddingVertical: s(5)
     },
-    iconButton : {
-        justifyContent : "center",
-        alignItems : "center",
-        height : s(20),
-        width : s(20),
-        padding : s(5),
-        backgroundColor : AppColors.lightGray,
-        borderRadius : s(10)
+    iconButton: {
+        justifyContent: "center",
+        alignItems: "center",
+        height: s(20),
+        width: s(20),
+        padding: s(5),
+        backgroundColor: AppColors.lightGray,
+        borderRadius: s(10)
     },
-    textQty : {
-        flex : 1,
-        alignItems : "center",
-        color : AppColors.primary,
-        paddingLeft : s(4)
+    textQty: {
+        flex: 1,
+        alignItems: "center",
+        color: AppColors.primary,
+        paddingLeft: s(4)
     }
 })

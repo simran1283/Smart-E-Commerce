@@ -14,12 +14,12 @@ const ProfileScreen = () => {
     return (
         <>
             <HomeHeader />
-            <View style={{paddingHorizontal : sharedPaddingHorizontal}}>
-                <ProfileSectionButton title="MyOrders" onPress={onMyOrdersPress}/>
-                <ProfileSectionButton title="Language" onPress={showBottomSheet}/>
-                <ProfileSectionButton title="Your Profile" onPress={handleUserProfile}/>
-                <ProfileSectionButton title="Logout" onPress={handleLogout}/>
-                <LangBottomSheet/>
+            <View style={{ paddingHorizontal: sharedPaddingHorizontal }}>
+                <ProfileSectionButton title="MyOrders" onPress={onMyOrdersPress} />
+                <ProfileSectionButton title="Language" onPress={showBottomSheet} />
+                <ProfileSectionButton title="Your Profile" onPress={handleUserProfile} />
+                <ProfileSectionButton title="Logout" onPress={handleLogout} />
+                <LangBottomSheet />
             </View>
         </>
     )

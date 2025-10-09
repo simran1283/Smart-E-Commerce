@@ -30,7 +30,7 @@ const CartScreen = () => {
                             />}
                         showsVerticalScrollIndicator={false} />
                     <TotalViews itemsPrice={totalItemsPrice} orderTotal={orderTotal} />
-                    <AppButton title="Continue" onPress={onContinuePress} style={{marginBottom : vs(10), width : "90%"}}/>
+                    <AppButton title="Continue" onPress={onContinuePress} style={{ marginBottom: vs(10), width: "90%" }} />
                 </>
 
             ) : (

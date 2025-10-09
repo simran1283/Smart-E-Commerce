@@ -11,34 +11,34 @@ import { useEffect, useState } from "react"
 
 const UserProfile = () => {
 
-    const { totalOrders, getTotalDocs} = useProfile()
+    const { totalOrders, getTotalDocs } = useProfile()
 
-    const [isLoading,setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
 
-    const userData = useSelector((state : RootState) => state.userSlice.userData)
+    const userData = useSelector((state: RootState) => state.userSlice.userData)
     const userEmail = userData?.email
     const userName = userEmail.split("@")[0].toUpperCase()
 
-    useEffect(()=>{
-        const getTotalOrders = async() => {
+    useEffect(() => {
+        const getTotalOrders = async () => {
             setIsLoading(true)
             await getTotalDocs()
             setIsLoading(false)
         }
         getTotalOrders()
-    },[])
+    }, [])
 
-    if(isLoading){
-        return(
-            <View style={{flex : 1, alignItems : "center", justifyContent : "center"}}>
-                <ActivityIndicator size={"large"} color={AppColors.primary}/>
+    if (isLoading) {
+        return (
+            <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+                <ActivityIndicator size={"large"} color={AppColors.primary} />
             </View>
         )
     }
 
     return (
         <View style={styles.container}>
-            <Image source={IMAGES.userProfile} style={styles.image}/>
+            <Image source={IMAGES.userProfile} style={styles.image} />
             <AppText variant="bold" style={styles.title}>{userName}</AppText>
             <AppText variant="bold" style={styles.subtitle}>{userEmail}</AppText>
             <AppText>You Have Placed {totalOrders} Orders</AppText>
@@ -49,23 +49,23 @@ const UserProfile = () => {
 export default UserProfile
 
 const styles = StyleSheet.create({
-    container : {
-        flex : 1,
-        alignItems : "center",
-        justifyContent : "flex-start",
-        marginVertical : vs(30)
+    container: {
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "flex-start",
+        marginVertical: vs(30)
     },
-    image : {
-        height : vs(120),
-        width : vs(120),
-        borderRadius : vs(60)
+    image: {
+        height: vs(120),
+        width: vs(120),
+        borderRadius: vs(60)
     },
-    title : {
-        fontSize : vs(20),
-        margin : vs(10)
+    title: {
+        fontSize: vs(20),
+        margin: vs(10)
     },
-    subtitle : {
-        color : AppColors.medGray,
-        marginBottom : vs(5)
+    subtitle: {
+        color: AppColors.medGray,
+        marginBottom: vs(5)
     }
 })

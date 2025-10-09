@@ -2,18 +2,18 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { UserState } from "./ReducerModel/UserModel";
 import AsyncStorage from "@react-native-async-storage/async-storage"
 
-const initialState : UserState= {
-    userData : null
+const initialState: UserState = {
+    userData: null
 }
 // user Slice to maintain the use data or credentials while App is running
 const userSlice = createSlice({
-    name : "userData",
-    initialState : initialState,
-    reducers : {
-        setUserData : (state,action) => {
+    name: "userData",
+    initialState: initialState,
+    reducers: {
+        setUserData: (state, action) => {
             state.userData = action.payload
             AsyncStorage.setItem("USER_DATA", JSON.stringify(action.payload))
-            console.log("Redux state",state.userData)
+            console.log("Redux state", state.userData)
         },
     }
 })

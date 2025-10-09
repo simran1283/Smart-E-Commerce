@@ -3,9 +3,9 @@ import cartSlice from "../reducers/cartSlice"
 import { persistReducer } from "redux-persist"
 
 const cartPersistConfig = {
-    key : "cart",
-    storage : AsyncStorage,
-    whitelist : ["itemsByUser","currentUserId"]
+    key: "cart",
+    storage: AsyncStorage,
+    whitelist: ["itemsByUser", "currentUserId"]
 }
 
-export const PersistedCartSlice = persistReducer(cartPersistConfig,cartSlice)
+export const PersistedCartSlice = persistReducer(cartPersistConfig, cartSlice)

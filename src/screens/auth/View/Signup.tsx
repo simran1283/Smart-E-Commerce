@@ -20,10 +20,10 @@ const SignUpScreen = () => {
         schema
     } = useSignUpViewModel();
 
-   
+
 
     const { control, handleSubmit } = useForm({
-        resolver : yupResolver(schema)
+        resolver: yupResolver(schema)
     })
 
     return (

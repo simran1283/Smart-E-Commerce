@@ -22,14 +22,14 @@ const SigninScreen = () => {
 
 
     const { handleSubmit, control } = useForm({
-        resolver : yupResolver(schema)
+        resolver: yupResolver(schema)
     })
 
 
     return (
         <View style={styles.container}>
             <Image source={IMAGES.appLogo} style={styles.appLogo} />
-            <AppTextInputController control={control} placeholder="Email" name={"email"}/>
+            <AppTextInputController control={control} placeholder="Email" name={"email"} />
             <AppTextInputController control={control} placeholder="Password" name={"password"} secureTextEntry />
             <AppText style={styles.appName}>Smart E-Commerce</AppText>
             <AppButton title="Login" onPress={handleSubmit(onLoginPress)} />

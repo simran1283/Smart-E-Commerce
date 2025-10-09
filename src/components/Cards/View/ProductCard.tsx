@@ -11,7 +11,7 @@ import { ProductCardType } from "../Model/CardModel"
 //  Product cards displaying information about a particular product with a add to cart button on it 
 //  and they will be displayed on the home screen
 
-const ProductCard : FC<ProductCardType> = ({onAddtoCartPress, title, price, ImageURL, onProductDetailPress}) => {
+const ProductCard: FC<ProductCardType> = ({ onAddtoCartPress, title, price, ImageURL, onProductDetailPress }) => {
     return (
         <TouchableOpacity style={styles.container} onPress={onProductDetailPress}>
 
@@ -22,7 +22,7 @@ const ProductCard : FC<ProductCardType> = ({onAddtoCartPress, title, price, Imag
 
             {/* Image container */}
             <View style={styles.imageContainer}>
-                <Image style={styles.image} source={{uri : ImageURL}}/>
+                <Image style={styles.image} source={{ uri: ImageURL }} />
             </View>
 
             {/* Details container */}
@@ -41,8 +41,8 @@ const styles = StyleSheet.create({
         height: vs(190),
         width: s(160),
         borderRadius: vs(10),
-        backgroundColor: AppColors.white, 
-        marginTop : vs(5),
+        backgroundColor: AppColors.white,
+        marginTop: vs(5),
         ...commonStyles.shadow
     },
     imageContainer: {

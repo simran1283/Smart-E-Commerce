@@ -16,25 +16,25 @@ const ProductCarousel = () => {
     const [currentIndex, setCurrentIndex] = useState(0)
     const flatListRef = useRef(null)
 
-    useEffect(()=>{
+    useEffect(() => {
 
-      const interval =  setInterval(()=>{
+        const interval = setInterval(() => {
             let nextIndex = currentIndex + 1
 
-            if(nextIndex >= data.length){
+            if (nextIndex >= data.length) {
                 nextIndex = 0
             }
 
             flatListRef.current?.scrollToIndex({
-                index : nextIndex,
-                animated : true
+                index: nextIndex,
+                animated: true
             })
 
             setCurrentIndex(nextIndex)
-        },3000)
+        }, 3000)
 
-         return ()=> clearInterval(interval)
-    },[currentIndex])
+        return () => clearInterval(interval)
+    }, [currentIndex])
 
     return (
         <View>

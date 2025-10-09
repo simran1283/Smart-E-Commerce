@@ -3,7 +3,7 @@ import { auth, db } from "../../../config/firebase"
 import { store } from "../../../store/store"
 
 
-const fetchUserOrders = async () =>{
+const fetchUserOrders = async () => {
 
     try {
         // userid from redux
@@ -12,20 +12,20 @@ const fetchUserOrders = async () =>{
         // //user Id from firebase
         const userIdfromFirebase = auth.currentUser?.uid
 
-        const userOrderref = collection(doc(db,"users",userIdfromFirebase),"orders")
+        const userOrderref = collection(doc(db, "users", userIdfromFirebase), "orders")
 
         const userOrders = await getDocs(userOrderref)
 
         const orderList = userOrders.docs.map((doc) => ({
-            id : doc.id,
+            id: doc.id,
             ...doc.data()
         }))
 
         return orderList
-        
+
     } catch (error) {
-        
-        console.log("Error fetching Orders",error)
+
+        console.log("Error fetching Orders", error)
 
     }
 }

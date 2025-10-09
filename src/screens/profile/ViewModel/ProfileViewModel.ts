@@ -13,11 +13,11 @@ import { RootState } from "../../../store/store"
 
 const useProfile = () => {
 
-    const [userOrders,setUserOrders] = useState([])
+    const [userOrders, setUserOrders] = useState([])
     const [isLoading, setIsLoading] = useState(false)
-    const [totalOrders,setTotalOrders] = useState(0)
+    const [totalOrders, setTotalOrders] = useState(0)
 
-    const userData = useSelector((state :RootState) => state.userSlice.userData)
+    const userData = useSelector((state: RootState) => state.userSlice.userData)
     const userId = userData?.uid
 
     const navigation = useNavigation()
@@ -26,7 +26,7 @@ const useProfile = () => {
         navigation.navigate("MyOrders")
     }
 
-    const getProducts = async () =>{
+    const getProducts = async () => {
         setIsLoading(true)
         const res = await fetchUserOrders()
         console.log(res)
@@ -48,10 +48,10 @@ const useProfile = () => {
         navigation.navigate("UserProfile")
     }
 
-    const getTotalDocs = async() =>{ 
-        const userOrderRef = collection(doc(db,"users",userId),"orders")
+    const getTotalDocs = async () => {
+        const userOrderRef = collection(doc(db, "users", userId), "orders")
         const snapshot = await getCountFromServer(userOrderRef)
-        const count =  snapshot.data().count
+        const count = snapshot.data().count
         setTotalOrders(count)
     }
 

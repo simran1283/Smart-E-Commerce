@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
         marginHorizontal: s(10),
         borderRadius: s(10),
         paddingVertical: vs(8),
-        marginBottom : vs(10)
+        marginBottom: vs(10)
     },
     separator: {
         borderBottomColor: AppColors.medGray,

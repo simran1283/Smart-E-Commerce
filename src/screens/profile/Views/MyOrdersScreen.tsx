@@ -17,7 +17,7 @@ const MyOrdersScreen = () => {
 
     if (isLoading) {
         return (
-            <View style={{alignItems : "center", justifyContent : "center", flex : 1}}>
+            <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
                 <ActivityIndicator size={"large"} color={AppColors.primary} />
             </View>
         )

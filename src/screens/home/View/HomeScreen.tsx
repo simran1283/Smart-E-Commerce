@@ -12,18 +12,18 @@ const HomeScreen = () => {
 
     const { onAddToCart, fetchProducts, products, isRefreshing, handleRefresh, isLoading, handleDetail } = useHome()
 
-    useEffect(()=>{
+    useEffect(() => {
         fetchProducts()
-    },[])
+    }, [])
 
-    if(isLoading){
-        return(
-            <View style={{flex : 1, alignItems : "center", justifyContent : "center"}}>
-                <ActivityIndicator size={"large"} color={AppColors.primary}/>
+    if (isLoading) {
+        return (
+            <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+                <ActivityIndicator size={"large"} color={AppColors.primary} />
             </View>
         )
     }
-    
+
     return (
         <>
             <HomeHeader />
@@ -36,7 +36,7 @@ const HomeScreen = () => {
                         ImageURL={item.imageURL}
                         price={item.price}
                         title={item.title}
-                        onAddtoCartPress={()=> onAddToCart(item)}
+                        onAddtoCartPress={() => onAddToCart(item)}
                         onProductDetailPress={() => handleDetail()}
                     />
                 )}
@@ -47,8 +47,8 @@ const HomeScreen = () => {
                 contentContainerStyle={{
                     paddingHorizontal: vs(10)
                 }}
-                showsVerticalScrollIndicator = {false}
-                refreshing = {isRefreshing}
+                showsVerticalScrollIndicator={false}
+                refreshing={isRefreshing}
                 onRefresh={handleRefresh}
             />
         </>

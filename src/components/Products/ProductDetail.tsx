@@ -129,7 +129,7 @@ const ProductDetail = () => {
                         <Image source={{ uri: "https://2b.com.eg/media/catalog/product/cache/661473ab953cdcdf4c3b607144109b90/m/a/ma658.jpg" }} style={{ height: vs(40), width: vs(40), marginEnd: vs(10) }} />
                         <Image source={{ uri: "https://2b.com.eg/media/catalog/product/cache/661473ab953cdcdf4c3b607144109b90/m/a/ma658.jpg" }} style={{ height: vs(40), width: vs(40), marginEnd: vs(10) }} />
                         <Image source={{ uri: "https://2b.com.eg/media/catalog/product/cache/661473ab953cdcdf4c3b607144109b90/m/a/ma658.jpg" }} style={{ height: vs(40), width: vs(40), marginEnd: vs(10) }} />
-                        
+
                     </ScrollView>
                     <AppText style={{ color: AppColors.primary, fontSize: vs(11), marginTop: vs(2) }}>Greatest Purchase I have ever made in my life!</AppText>
                 </View>
@@ -223,7 +223,7 @@ const styles = StyleSheet.create({
         gap: s(30),
         rowGap: vs(10),
         margin: vs(10),
-        marginStart : vs(20)
+        marginStart: vs(20)
     },
     size: {
         height: s(30),

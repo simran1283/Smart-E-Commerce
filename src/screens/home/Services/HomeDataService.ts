@@ -12,7 +12,7 @@ const getProducts = async () => {
         products.forEach((doc) =>
             list.push(doc.data()))
 
-        return list ; 
+        return list;
     }
     catch (err) {
 

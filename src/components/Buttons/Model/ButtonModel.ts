@@ -1,8 +1,8 @@
 import { StyleProp, TextStyle, ViewStyle } from "react-native";
 
 export interface AppButtonProps {
-    onPress : ()=> void,
-    title : string,
+    onPress: () => void,
+    title: string,
     backgroundColor?: string,
     textColor?: string,
     style?: StyleProp<ViewStyle>,
@@ -12,6 +12,6 @@ export interface AppButtonProps {
 
 
 export interface ProfileButton {
-    onPress? : () => void, 
-    title : string
+    onPress?: () => void,
+    title: string
 }

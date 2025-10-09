@@ -1,5 +1,5 @@
 export interface Radio {
-    title : string,
-    onPress : () => void,
-    selected? : boolean
+    title: string,
+    onPress: () => void,
+    selected?: boolean
 }

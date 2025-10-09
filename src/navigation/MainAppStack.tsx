@@ -28,55 +28,55 @@ const MainAppStack = () => {
     const [isLoading, setIsLoading] = useState<boolean>(true)
     // const [userData, setUserData] = useState<object | null>(null)
 
-    const userData = useSelector((state : RootState) => state.userSlice.userData)
+    const userData = useSelector((state: RootState) => state.userSlice.userData)
 
-    useEffect(()=>{
-        onAuthStateChanged(auth,(userDataFromFirebase)=>{
-            if(userDataFromFirebase){
+    useEffect(() => {
+        onAuthStateChanged(auth, (userDataFromFirebase) => {
+            if (userDataFromFirebase) {
                 console.log("User Logged IN")
                 setIsLoading(false)
                 // setUserData(userDataFromFirebase)
                 const userOBJ = {
-                    uid : userDataFromFirebase.uid,
-                   email : userDataFromFirebase.email
+                    uid: userDataFromFirebase.uid,
+                    email: userDataFromFirebase.email
                 }
                 dispatch(setUserData(userOBJ))
                 dispatch(setUserId(userOBJ.uid))
-            }else{
+            } else {
                 console.log("User Logged OUT")
                 setIsLoading(false)
-                 dispatch(setUserData(null))
-                 dispatch(setUserId(null))
+                dispatch(setUserData(null))
+                dispatch(setUserId(null))
             }
         })
-    },[])
-    console.log(JSON.stringify(userData,null,3))
+    }, [])
+    console.log(JSON.stringify(userData, null, 3))
 
-    if(isLoading){
+    if (isLoading) {
         return (
-            <View style={{flex : 1,alignItems : "center",justifyContent :"center"}}>
-                <ActivityIndicator size={"large"} color={AppColors.black}/>
+            <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+                <ActivityIndicator size={"large"} color={AppColors.black} />
             </View>
         )
     }
 
 
-    return(
+    return (
         <Stack.Navigator screenOptions={{
-            headerShown : false
+            headerShown: false
         }} initialRouteName={userData ? "BottomTabs" : "Authstack"}>
-            <Stack.Screen name="Authstack" component={AuthStack}/>
-            <Stack.Screen name="BottomTabs" component={BottomTabs}/>
+            <Stack.Screen name="Authstack" component={AuthStack} />
+            <Stack.Screen name="BottomTabs" component={BottomTabs} />
             <Stack.Screen name="CheckoutScreen" component={CheckoutScreen} options={{
-                headerShown : true
-            }}/>
+                headerShown: true
+            }} />
             <Stack.Screen name="MyOrders" component={MyOrdersScreen} options={{
-                headerShown : true
-            }}/>
+                headerShown: true
+            }} />
             <Stack.Screen name="UserProfile" component={UserProfile} options={{
-                headerShown : true
-            }}/>
-            <Stack.Screen name="ProductDetail" component={ProductDetailScreen}/>
+                headerShown: true
+            }} />
+            <Stack.Screen name="ProductDetail" component={ProductDetailScreen} />
         </Stack.Navigator>
     )
 }

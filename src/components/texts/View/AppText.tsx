@@ -23,11 +23,11 @@ const styles = StyleSheet.create({
     bold: {
         fontSize: s(18),
         color: AppColors.black,
-        fontFamily : AppFonts.Bold
+        fontFamily: AppFonts.Bold
     },
     medium: {
         fontSize: s(16),
         color: AppColors.black,
-        fontFamily : AppFonts.Medium
+        fontFamily: AppFonts.Medium
     }
 })

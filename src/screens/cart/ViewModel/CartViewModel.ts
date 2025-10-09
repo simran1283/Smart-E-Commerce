@@ -7,7 +7,7 @@ import { shippingFees, taxes } from "../../../constants/constants"
 import * as yup from "yup"
 import { addDoc, collection, doc } from "firebase/firestore"
 import { showMessage } from "react-native-flash-message"
-import {  db } from "../../../config/firebase"
+import { db } from "../../../config/firebase"
 import { useState } from "react"
 
 const useCartViewModel = () => {
