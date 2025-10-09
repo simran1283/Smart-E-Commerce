@@ -7,17 +7,22 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import EvilIcons from '@expo/vector-icons/EvilIcons';
 import { AppColors } from "../../styles/colors";
 import AppButton from "../Buttons/View/AppButton";
+import ProductCarousel from "./ProductCarousel";
+
+
 
 const ProductDetail = () => {
     return (
         //parent container
         <ScrollView style={{ backgroundColor: AppColors.lightGray, flex: 1 }} showsVerticalScrollIndicator={false}>
+            <ProductCarousel/>
 
             {/* outer container */}
             <View style={styles.container}>
 
                 {/* product image */}
-                <Image source={{ uri: "https://2b.com.eg/media/catalog/product/cache/661473ab953cdcdf4c3b607144109b90/m/a/ma658.jpg" }} style={styles.image} />
+                {/* <Image source={{ uri: "https://2b.com.eg/media/catalog/product/cache/661473ab953cdcdf4c3b607144109b90/m/a/ma658.jpg" }} style={styles.image} /> */}
+                
 
                 {/* product info container */}
                 <View style={styles.innerContainer}>
@@ -95,14 +100,18 @@ const ProductDetail = () => {
                     <AppText variant="bold" style={{ fontSize: vs(14) }}>Rating and Reviews</AppText>
                     <TouchableOpacity><AppText style={{ color: "#1350b1ff", fontSize: vs(11) }}>SHOW LESS</AppText></TouchableOpacity>
                 </View>
+
+                {/* separator */}
                 <View style={{ width: "100%", height: vs(1), backgroundColor: AppColors.medGray, marginTop: vs(5) }}></View>
+
+                {/* review 1 */}
                 <View>
-                    <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", marginTop : vs(11)}}>
-                        <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", gap : vs(10) }}>
-                            <Image source={IMAGES.userProfile} style={{ height: vs(30), width: vs(30), borderRadius: vs(15), borderColor: AppColors.medGray, borderWidth: vs(1) }} />
+                    <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", marginTop: vs(11) }}>
+                        <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", gap: vs(10) }}>
+                            <Image style={{ height: vs(30), width: vs(30), borderRadius: vs(15), borderColor: AppColors.medGray, borderWidth: vs(1) }} />
                             <View>
                                 <AppText style={{ fontSize: vs(11) }} variant="bold">Serina Williams</AppText>
-                                <AppText style={{ fontSize: vs(11) }}>1 Oct, 2025</AppText>
+                                <AppText style={{ fontSize: vs(8) }}>1 Oct, 2025</AppText>
                             </View>
                         </View>
                         <View style={styles.ratingContainer}>
@@ -113,27 +122,26 @@ const ProductDetail = () => {
                             <EvilIcons name="star" size={18} color={AppColors.medGray} />
                         </View>
                     </View>
-                    <View style={{flexDirection : "row", alignItems : "center", marginTop : vs(11)}}>
-                        <Image source={{uri : "https://2b.com.eg/media/catalog/product/cache/661473ab953cdcdf4c3b607144109b90/m/a/ma658.jpg"}} style={{ height: vs(40), width: vs(40) }} />
-                        <Image source={{uri : "https://2b.com.eg/media/catalog/product/cache/661473ab953cdcdf4c3b607144109b90/m/a/ma658.jpg"}} style={{ height: vs(40), width: vs(40) }} />
-                        <Image source={{uri : "https://2b.com.eg/media/catalog/product/cache/661473ab953cdcdf4c3b607144109b90/m/a/ma658.jpg"}} style={{ height: vs(40), width: vs(40) }} />
-                        <Image source={{uri : "https://2b.com.eg/media/catalog/product/cache/661473ab953cdcdf4c3b607144109b90/m/a/ma658.jpg"}} style={{ height: vs(40), width: vs(40) }} />
+                    <View style={{ flexDirection: "row", alignItems: "center", marginTop: vs(11) }}>
+                        <Image source={{ uri: "https://2b.com.eg/media/catalog/product/cache/661473ab953cdcdf4c3b607144109b90/m/a/ma658.jpg" }} style={{ height: vs(40), width: vs(40) }} />
+                        <Image source={{ uri: "https://2b.com.eg/media/catalog/product/cache/661473ab953cdcdf4c3b607144109b90/m/a/ma658.jpg" }} style={{ height: vs(40), width: vs(40) }} />
+                        <Image source={{ uri: "https://2b.com.eg/media/catalog/product/cache/661473ab953cdcdf4c3b607144109b90/m/a/ma658.jpg" }} style={{ height: vs(40), width: vs(40) }} />
+                        <Image source={{ uri: "https://2b.com.eg/media/catalog/product/cache/661473ab953cdcdf4c3b607144109b90/m/a/ma658.jpg" }} style={{ height: vs(40), width: vs(40) }} />
                     </View>
-                    <AppText style={{color : AppColors.primary, fontSize : vs(11), marginTop : vs(2)}}>Greatest Purchase I have ever made in my life!</AppText>
+                    <AppText style={{ color: AppColors.primary, fontSize: vs(11), marginTop: vs(2) }}>Greatest Purchase I have ever made in my life!</AppText>
                 </View>
 
+                {/* separator */}
+                <View style={{ width: "100%", height: vs(1), backgroundColor: AppColors.medGray, marginTop: vs(10) }}></View>
 
-
-
-
-                <View style={{ width: "100%", height: vs(1), backgroundColor: AppColors.medGray, marginTop: vs(5) }}></View>
+                {/* review 2 */}
                 <View>
-                    <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", marginTop : vs(11)}}>
-                        <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", gap : vs(10) }}>
-                            <Image source={IMAGES.userProfile} style={{ height: vs(30), width: vs(30), borderRadius: vs(15), borderColor: AppColors.medGray, borderWidth : vs(1) }} />
+                    <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", marginTop: vs(11) }}>
+                        <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", gap: vs(10) }}>
+                            <Image style={{ height: vs(30), width: vs(30), borderRadius: vs(15), borderColor: AppColors.medGray, borderWidth: vs(1) }} />
                             <View>
                                 <AppText style={{ fontSize: vs(11) }} variant="bold">Jordan Francis</AppText>
-                                <AppText style={{ fontSize: vs(11) }}>9 Oct, 2025</AppText>
+                                <AppText style={{ fontSize: vs(8) }}>9 Oct, 2025</AppText>
                             </View>
                         </View>
                         <View style={styles.ratingContainer}>
@@ -144,11 +152,11 @@ const ProductDetail = () => {
                             <EvilIcons name="star" size={18} color={AppColors.medGray} />
                         </View>
                     </View>
-                    <View style={{flexDirection : "row", alignItems : "center", marginTop : vs(11)}}>
-                        <Image source={{uri : "https://2b.com.eg/media/catalog/product/cache/661473ab953cdcdf4c3b607144109b90/m/a/ma658.jpg"}} style={{ height: vs(40), width: vs(40) }} />
-                        <Image source={{uri : "https://2b.com.eg/media/catalog/product/cache/661473ab953cdcdf4c3b607144109b90/m/a/ma658.jpg"}} style={{ height: vs(40), width: vs(40) }} />
+                    <View style={{ flexDirection: "row", alignItems: "center", marginTop: vs(11) }}>
+                        <Image source={{ uri: "https://2b.com.eg/media/catalog/product/cache/661473ab953cdcdf4c3b607144109b90/m/a/ma658.jpg" }} style={{ height: vs(40), width: vs(40) }} />
+                        <Image source={{ uri: "https://2b.com.eg/media/catalog/product/cache/661473ab953cdcdf4c3b607144109b90/m/a/ma658.jpg" }} style={{ height: vs(40), width: vs(40) }} />
                     </View>
-                    <AppText style={{color : AppColors.primary, fontSize : vs(11), marginTop : vs(2)}}>Absolutely love them ! Can't stop wearing.</AppText>
+                    <AppText style={{ color: AppColors.primary, fontSize: vs(11), marginTop: vs(2) }}>Absolutely love them ! Can't stop wearing.</AppText>
                 </View>
             </View>
         </ScrollView>
@@ -201,7 +209,7 @@ const styles = StyleSheet.create({
     },
     iconsContainer: {
         flex: 1,
-        alignItems: "center",
+        alignItems: "flex-end",
         gap: vs(20)
     },
     sizeContainer: {
@@ -235,6 +243,6 @@ const styles = StyleSheet.create({
     reviewContainer: {
         backgroundColor: AppColors.white,
         padding: vs(10),
-        paddingBottom : vs(100)
+        paddingBottom: vs(100)
     }
 })
