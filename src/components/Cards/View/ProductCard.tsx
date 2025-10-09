@@ -11,9 +11,9 @@ import { ProductCardType } from "../Model/CardModel"
 //  Product cards displaying information about a particular product with a add to cart button on it 
 //  and they will be displayed on the home screen
 
-const ProductCard : FC<ProductCardType> = ({onAddtoCartPress, title, price, ImageURL}) => {
+const ProductCard : FC<ProductCardType> = ({onAddtoCartPress, title, price, ImageURL, onProductDetailPress}) => {
     return (
-        <View style={styles.container}>
+        <TouchableOpacity style={styles.container} onPress={onProductDetailPress}>
 
             {/* Add to cart button */}
             <TouchableOpacity style={styles.addtoCartBttn} onPress={onAddtoCartPress}>
@@ -30,7 +30,7 @@ const ProductCard : FC<ProductCardType> = ({onAddtoCartPress, title, price, Imag
                 <AppText style={styles.titleText}>{title}</AppText>
                 <AppText style={styles.priceText}>$ {price}</AppText>
             </View>
-        </View>
+        </TouchableOpacity>
     )
 }
 

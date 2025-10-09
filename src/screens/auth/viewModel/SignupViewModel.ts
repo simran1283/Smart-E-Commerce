@@ -49,7 +49,8 @@ const useSignUpViewModel = () => {
             navigation.navigate("BottomTabs")
 
             const userDataObj = {
-                uid : userCredential.user.uid
+                uid : userCredential.user.uid,
+                email : userCredential.user.email
             }
             dispatch(setUserData(userDataObj))
         }

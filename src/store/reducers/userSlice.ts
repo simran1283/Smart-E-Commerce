@@ -10,7 +10,6 @@ const userSlice = createSlice({
     name : "userData",
     initialState : initialState,
     reducers : {
-
         setUserData : (state,action) => {
             state.userData = action.payload
             AsyncStorage.setItem("USER_DATA", JSON.stringify(action.payload))

@@ -1,7 +1,6 @@
 import HomeHeader from "../../../components/Headers/View/HomeHeader"
 import { ActivityIndicator, FlatList, View } from "react-native"
 import ProductCard from "../../../components/Cards/View/ProductCard"
-import { products } from "../../../data/products"
 import { vs } from "react-native-size-matters"
 import useHome from "../ViewModel/HomeScreenViewModel"
 import { useEffect } from "react"
@@ -11,7 +10,7 @@ import { AppColors } from "../../../styles/colors"
 
 const HomeScreen = () => {
 
-    const { onAddToCart, fetchProducts, products, isRefreshing, handleRefresh, isLoading } = useHome()
+    const { onAddToCart, fetchProducts, products, isRefreshing, handleRefresh, isLoading, handleDetail } = useHome()
 
     useEffect(()=>{
         fetchProducts()
@@ -38,6 +37,7 @@ const HomeScreen = () => {
                         price={item.price}
                         title={item.title}
                         onAddtoCartPress={()=> onAddToCart(item)}
+                        onProductDetailPress={() => handleDetail()}
                     />
                 )}
                 columnWrapperStyle={{

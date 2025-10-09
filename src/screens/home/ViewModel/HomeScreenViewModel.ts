@@ -3,12 +3,15 @@ import { addItemToCart } from "../../../store/reducers/cartSlice"
 import { Product } from "../../../store/reducers/ReducerModel/CartModel"
 import getProducts from "../Services/HomeDataService"
 import { useState } from "react"
+import { useNavigation } from "@react-navigation/native"
 
 const useHome = () => {
 
     const [products,setProducts] = useState<Product []>([])
     const [isRefreshing,setIsRefreshing] = useState(false)
     const [isLoading,setIsLoading] = useState(false)
+
+    const navigation = useNavigation()
 
     const handleRefresh = async() => {
         setIsRefreshing(true)
@@ -30,13 +33,18 @@ const useHome = () => {
         setIsLoading(false)
     }
 
+    const handleDetail = () =>{
+        navigation.navigate("ProductDetail")
+    }
+
     return {
         onAddToCart,
         fetchProducts,
         products,
         isRefreshing,
         handleRefresh,
-        isLoading
+        isLoading,
+        handleDetail
     }
 }
 

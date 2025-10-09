@@ -12,6 +12,9 @@ import { AppColors } from "../styles/colors"
 import { onAuthStateChanged } from "firebase/auth"
 import { auth } from "../config/firebase"
 import { setUserId } from "../store/reducers/cartSlice"
+import UserProfile from "../screens/profile/Views/UserProfile"
+import ProductDetail from "../components/Products/ProductDetail"
+import ProductDetailScreen from "../screens/product/ProductDetailScreen"
 
 // Main App Stack that is the parent navigation for all other navigations 
 // Conditionally rendering of screens on the basis of if user is loggedin or not
@@ -70,6 +73,10 @@ const MainAppStack = () => {
             <Stack.Screen name="MyOrders" component={MyOrdersScreen} options={{
                 headerShown : true
             }}/>
+            <Stack.Screen name="UserProfile" component={UserProfile} options={{
+                headerShown : true
+            }}/>
+            <Stack.Screen name="ProductDetail" component={ProductDetailScreen}/>
         </Stack.Navigator>
     )
 }
