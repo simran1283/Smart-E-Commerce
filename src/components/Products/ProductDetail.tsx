@@ -15,30 +15,32 @@ const ProductDetail = () => {
     return (
         //parent container
         <ScrollView style={{ backgroundColor: AppColors.lightGray, flex: 1 }} showsVerticalScrollIndicator={false}>
-            <ProductCarousel/>
+            <ProductCarousel />
 
             {/* outer container */}
             <View style={styles.container}>
 
                 {/* product image */}
                 {/* <Image source={{ uri: "https://2b.com.eg/media/catalog/product/cache/661473ab953cdcdf4c3b607144109b90/m/a/ma658.jpg" }} style={styles.image} /> */}
-                
+
 
                 {/* product info container */}
                 <View style={styles.innerContainer}>
 
                     {/* information container */}
                     <View style={styles.info}>
-                        <AppText variant="bold" style={{ fontSize: vs(13) }}>iPhone 15 Pro Max</AppText>
+                        <AppText variant="bold" style={{ fontSize: vs(13) }}
+                            numberOfLines={2}
+                            ellipsizeMode="tail">iPhone 15 Pro Max</AppText>
                         <AppText style={{ color: AppColors.medGray, fontSize: vs(12), textAlign: "left" }}>Lorem ipsum dolor sit amet consec tetur adipisicing elit consec tetur.Facilis iure ex.</AppText>
 
                         {/* rating container */}
                         <View style={styles.ratingContainer}>
-                            <MaterialIcons name="star-rate" size={24} color="#f6d949ff" />
-                            <MaterialIcons name="star-rate" size={24} color="#f6d949ff" />
-                            <MaterialIcons name="star-rate" size={24} color="#f6d949ff" />
-                            <MaterialIcons name="star-rate" size={24} color="#f6d949ff" />
-                            <EvilIcons name="star" size={24} color={AppColors.medGray} />
+                            <MaterialIcons name="star-rate" size={s(24)} color="#f6d949ff" />
+                            <MaterialIcons name="star-rate" size={s(24)} color="#f6d949ff" />
+                            <MaterialIcons name="star-rate" size={s(24)} color="#f6d949ff" />
+                            <MaterialIcons name="star-rate" size={s(24)} color="#f6d949ff" />
+                            <EvilIcons name="star" size={s(24)} color={AppColors.medGray} />
                             <AppText style={styles.rateText}>4 Ratings</AppText>
                         </View>
 
@@ -83,7 +85,7 @@ const ProductDetail = () => {
             </View>
 
             {/* Add to cart button */}
-            <AppButton title="ADD TO CART" onPress={() => { }} style={{ width: "50%", backgroundColor: "#1350b1ff", marginVertical: vs(10) }}></AppButton>
+            <AppButton title="ADD TO CART" onPress={() => { }} style={{ width: s(160), backgroundColor: "#1350b1ff", marginVertical: vs(10), height: vs(30) }}></AppButton>
 
             {/* Product description */}
             <View style={styles.description}>
@@ -102,7 +104,7 @@ const ProductDetail = () => {
                 </View>
 
                 {/* separator */}
-                <View style={{ width: "100%", height: vs(1), backgroundColor: AppColors.medGray, marginTop: vs(5) }}></View>
+                <View style={{ width: "100%", height: vs(1), backgroundColor: AppColors.lightGray, marginTop: vs(5) }}></View>
 
                 {/* review 1 */}
                 <View>
@@ -115,24 +117,25 @@ const ProductDetail = () => {
                             </View>
                         </View>
                         <View style={styles.ratingContainer}>
-                            <MaterialIcons name="star-rate" size={18} color="#f6d949ff" />
-                            <MaterialIcons name="star-rate" size={18} color="#f6d949ff" />
-                            <MaterialIcons name="star-rate" size={18} color="#f6d949ff" />
-                            <MaterialIcons name="star-rate" size={18} color="#f6d949ff" />
-                            <EvilIcons name="star" size={18} color={AppColors.medGray} />
+                            <MaterialIcons name="star-rate" size={s(18)} color="#f6d949ff" />
+                            <MaterialIcons name="star-rate" size={s(18)} color="#f6d949ff" />
+                            <MaterialIcons name="star-rate" size={s(18)} color="#f6d949ff" />
+                            <MaterialIcons name="star-rate" size={s(18)} color="#f6d949ff" />
+                            <EvilIcons name="star" size={s(18)} color={AppColors.medGray} />
                         </View>
                     </View>
-                    <View style={{ flexDirection: "row", alignItems: "center", marginTop: vs(11) }}>
-                        <Image source={{ uri: "https://2b.com.eg/media/catalog/product/cache/661473ab953cdcdf4c3b607144109b90/m/a/ma658.jpg" }} style={{ height: vs(40), width: vs(40) }} />
-                        <Image source={{ uri: "https://2b.com.eg/media/catalog/product/cache/661473ab953cdcdf4c3b607144109b90/m/a/ma658.jpg" }} style={{ height: vs(40), width: vs(40) }} />
-                        <Image source={{ uri: "https://2b.com.eg/media/catalog/product/cache/661473ab953cdcdf4c3b607144109b90/m/a/ma658.jpg" }} style={{ height: vs(40), width: vs(40) }} />
-                        <Image source={{ uri: "https://2b.com.eg/media/catalog/product/cache/661473ab953cdcdf4c3b607144109b90/m/a/ma658.jpg" }} style={{ height: vs(40), width: vs(40) }} />
-                    </View>
+                    <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ marginTop: vs(11) }}>
+                        <Image source={{ uri: "https://2b.com.eg/media/catalog/product/cache/661473ab953cdcdf4c3b607144109b90/m/a/ma658.jpg" }} style={{ height: vs(40), width: vs(40), marginEnd: vs(10) }} />
+                        <Image source={{ uri: "https://2b.com.eg/media/catalog/product/cache/661473ab953cdcdf4c3b607144109b90/m/a/ma658.jpg" }} style={{ height: vs(40), width: vs(40), marginEnd: vs(10) }} />
+                        <Image source={{ uri: "https://2b.com.eg/media/catalog/product/cache/661473ab953cdcdf4c3b607144109b90/m/a/ma658.jpg" }} style={{ height: vs(40), width: vs(40), marginEnd: vs(10) }} />
+                        <Image source={{ uri: "https://2b.com.eg/media/catalog/product/cache/661473ab953cdcdf4c3b607144109b90/m/a/ma658.jpg" }} style={{ height: vs(40), width: vs(40), marginEnd: vs(10) }} />
+                        
+                    </ScrollView>
                     <AppText style={{ color: AppColors.primary, fontSize: vs(11), marginTop: vs(2) }}>Greatest Purchase I have ever made in my life!</AppText>
                 </View>
 
                 {/* separator */}
-                <View style={{ width: "100%", height: vs(1), backgroundColor: AppColors.medGray, marginTop: vs(10) }}></View>
+                <View style={{ width: "100%", height: vs(1), backgroundColor: AppColors.lightGray, marginTop: vs(10) }}></View>
 
                 {/* review 2 */}
                 <View>
@@ -145,17 +148,17 @@ const ProductDetail = () => {
                             </View>
                         </View>
                         <View style={styles.ratingContainer}>
-                            <MaterialIcons name="star-rate" size={18} color="#f6d949ff" />
-                            <MaterialIcons name="star-rate" size={18} color="#f6d949ff" />
-                            <MaterialIcons name="star-rate" size={18} color="#f6d949ff" />
-                            <EvilIcons name="star" size={18} color={AppColors.medGray} />
-                            <EvilIcons name="star" size={18} color={AppColors.medGray} />
+                            <MaterialIcons name="star-rate" size={s(18)} color="#f6d949ff" />
+                            <MaterialIcons name="star-rate" size={s(18)} color="#f6d949ff" />
+                            <MaterialIcons name="star-rate" size={s(18)} color="#f6d949ff" />
+                            <EvilIcons name="star" size={s(18)} color={AppColors.medGray} />
+                            <EvilIcons name="star" size={s(18)} color={AppColors.medGray} />
                         </View>
                     </View>
-                    <View style={{ flexDirection: "row", alignItems: "center", marginTop: vs(11) }}>
-                        <Image source={{ uri: "https://2b.com.eg/media/catalog/product/cache/661473ab953cdcdf4c3b607144109b90/m/a/ma658.jpg" }} style={{ height: vs(40), width: vs(40) }} />
-                        <Image source={{ uri: "https://2b.com.eg/media/catalog/product/cache/661473ab953cdcdf4c3b607144109b90/m/a/ma658.jpg" }} style={{ height: vs(40), width: vs(40) }} />
-                    </View>
+                    <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ marginTop: vs(11) }}>
+                        <Image source={{ uri: "https://2b.com.eg/media/catalog/product/cache/661473ab953cdcdf4c3b607144109b90/m/a/ma658.jpg" }} style={{ height: vs(40), width: vs(40), marginEnd: vs(10) }} />
+                        <Image source={{ uri: "https://2b.com.eg/media/catalog/product/cache/661473ab953cdcdf4c3b607144109b90/m/a/ma658.jpg" }} style={{ height: vs(40), width: vs(40), marginEnd: vs(10) }} />
+                    </ScrollView>
                     <AppText style={{ color: AppColors.primary, fontSize: vs(11), marginTop: vs(2) }}>Absolutely love them ! Can't stop wearing.</AppText>
                 </View>
             </View>
@@ -167,7 +170,7 @@ export default ProductDetail
 
 const styles = StyleSheet.create({
     container: {
-        flex: .4,
+        flex: 1,
         backgroundColor: AppColors.white,
         padding: vs(10)
     },
@@ -213,11 +216,14 @@ const styles = StyleSheet.create({
         gap: vs(20)
     },
     sizeContainer: {
-        flex: .58,
         flexDirection: "row",
+        flexWrap: "wrap",
         alignItems: "center",
-        justifyContent: "space-evenly",
-        margin: vs(10)
+        justifyContent: "flex-start",
+        gap: s(30),
+        rowGap: vs(10),
+        margin: vs(10),
+        marginStart : vs(20)
     },
     size: {
         height: s(30),
@@ -228,9 +234,9 @@ const styles = StyleSheet.create({
         justifyContent: "center"
     },
     innerSize: {
-        height: s(28),
-        width: s(28),
-        borderRadius: s(14),
+        height: s(26),
+        width: s(26),
+        borderRadius: s(13),
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: "#1350b1ff"
