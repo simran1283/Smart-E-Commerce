@@ -64,7 +64,7 @@ const ProductDetail = () => {
 
                         {/* wishlist and share button */}
                         <TouchableOpacity style={styles.icon} onPress={()=> setSelected(!selected)}>
-                            {selected ? <Ionicons name="heart-outline" size={24} color="black" /> : <Ionicons name="heart-sharp" size={24} color="#1350b1ff" />}
+                            {selected ? <Ionicons name="heart-sharp" size={24} color="#1350b1ff" /> : <Ionicons name="heart-outline" size={24} color="black" />}
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.icon}>
                             <Ionicons name="share-social-outline" size={24} color="black" />
