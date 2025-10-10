@@ -76,7 +76,7 @@ const MainAppStack = () => {
             <Stack.Screen name="UserProfile" component={UserProfile} options={{
                 headerShown: true
             }} />
-            <Stack.Screen name="ProductDetail" component={ProductDetailScreen} />
+            <Stack.Screen name="ProductDetail" component={ProductDetailScreen}/>
         </Stack.Navigator>
     )
 }

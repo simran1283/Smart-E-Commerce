@@ -1,12 +1,12 @@
-import { View, StyleSheet, Image } from "react-native"
+import { View, StyleSheet, Image, ViewStyle, StyleProp } from "react-native"
 import { IMAGES } from "../../../constants/images-paths"
 import { vs, s } from "react-native-size-matters"
 import { AppColors } from "../../../styles/colors"
 
 // Common header component that is used on every screen
-const HomeHeader = () => {
+const HomeHeader = ({style} : {style : StyleProp<ViewStyle>}) => {
     return (
-        <View style={styles.container}>
+        <View style={[styles.container, style]}>
             <Image source={IMAGES.appLogo} style={styles.logo} />
         </View>
     )

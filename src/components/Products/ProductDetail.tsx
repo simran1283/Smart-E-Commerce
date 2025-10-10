@@ -8,10 +8,13 @@ import EvilIcons from '@expo/vector-icons/EvilIcons';
 import { AppColors } from "../../styles/colors";
 import AppButton from "../Buttons/View/AppButton";
 import ProductCarousel from "./ProductCarousel";
+import { useState } from "react";
 
 
 
 const ProductDetail = () => {
+
+    const [selected, setSelected] = useState(false)
     return (
         //parent container
         <ScrollView style={{ backgroundColor: AppColors.lightGray, flex: 1 }} showsVerticalScrollIndicator={false}>
@@ -60,8 +63,8 @@ const ProductDetail = () => {
                     <View style={styles.iconsContainer}>
 
                         {/* wishlist and share button */}
-                        <TouchableOpacity style={styles.icon}>
-                            <Ionicons name="heart-outline" size={24} color="black" />
+                        <TouchableOpacity style={styles.icon} onPress={()=> setSelected(!selected)}>
+                            {selected ? <Ionicons name="heart-outline" size={24} color="black" /> : <Ionicons name="heart-sharp" size={24} color="#1350b1ff" />}
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.icon}>
                             <Ionicons name="share-social-outline" size={24} color="black" />
